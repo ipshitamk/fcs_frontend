@@ -1,0 +1,97 @@
+element_type,osmid,amenity,name,geometry,website,name:en,addr:street,opening_hours,addr:city,addr:postcode,email,grades,name:bn,operator,operator:type,phone,religion,nodes,building,designation,ways,type,ward5wknn,index,points,rank,value
+node,2408674333,school,Bangladesh Navy School and College,POINT (91.7802358 22.2911712),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,2581078667,university,East Delta University (EDU),POINT (91.8113974 22.3214969),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,2588776659,college,Chittagong Maa-O-Shishu Hospital Medical College,POINT (91.8061102 22.3231074),http://www.maa-shishu-ctg.org/,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5105441325,school,,POINT (91.7805412 22.2863852),,BEPZA School,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5105452622,school,,POINT (91.7776834 22.282593),,"Anchorage School, Chittagong",,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5136889741,school,Bangladesh Bank Colony High School,POINT (91.8032558 22.3244373),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5136889742,school,Hatey Khari High School & College,POINT (91.8021841 22.3234485),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5539391398,school,Maizpara Gousia Sunnia Dakhil Madrasa,POINT (91.8070705 22.2538937),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5539561961,school,Dail Para Government Primary School,POINT (91.7921041 22.2519249),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5539567610,school,Nazir Para Government Primary School,POINT (91.7984207 22.2444773),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5539640107,school,পতেঙ্গা উচ্চ বিদ্যালয়,POINT (91.790789 22.2600032),,Patenga High School,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5554130008,school,পতেঙ্গা সিটি কর্পোরেশন মহিলা কলেজ,POINT (91.7932567 22.2569103),,Patenga City Corporation Mohila College,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5671274458,school,BAF Shaheen College Chattogram,POINT (91.8144 22.2658562),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5729586214,school,Laldia Char Government Primary School,POINT (91.8295799 22.257471),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5896946986,school,,POINT (91.7819086 22.2807031),,Hazrat Ali Shah (R.) Girls’ School,Madrazi Shah Road,Sa-Th 07:30-16:00,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5896946989,school,,POINT (91.7850141 22.28401),,South Halishahar School,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5896947186,kindergarten,,POINT (91.7819227 22.2816833),,Premiere Ideal School,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,5896947188,college,,POINT (91.7843688 22.2836696),,Math Zone,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,6134243071,college,"Chattogram Port School and College Playground, Port Colony Rd, Chattogram",POINT (91.7946075 22.315244),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,6134400343,school,Ghasful Primary School,POINT (91.791949 22.3208251),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,6134403815,college,Chittagong Bandar Mahila College,POINT (91.7914667 22.3199851),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,7812783695,school,"TSP Complex Secondary School, TSP Colony, Housing Colony Rd, Chattogram",POINT (91.7818617 22.2688677),www.tspschool.edu.bd,,টিএসপি কলোনী সড়ক,,"স্টীলমিল বাজার, পতেঙ্গা",4204,tspschool@yahoo.com,1-10,টিএসপি কমপ্লেক্স সেকেন্ডারী স্কুল,টিএসপি কমপ্লেক্স লিমিটেড,government,+880241350154,multifaith,,,,,,1,1,north,1,16.32
+node,11266096441,school,"Port east colony primary school, Port east colony, Chattogram",POINT (91.7942715 22.3238901),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11280734980,school,"G.R.K. Multi High School, Sheikh Mujib Rd, Chattogram",POINT (91.8119431 22.3210418),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11280736580,school,"Sardesshori Sorkari Prathomik Biddaloy, B Nag Lane, Barik Building Moor, Gosaildanga Bandar, Chattogram",POINT (91.8106976 22.3205166),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11280756509,school,"B.C.S.I.R Laboratory High School, Infront of BRTA, Natun Pada, Hathazari Road, Chattogram",POINT (91.8114798 22.3189674),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11290680438,college,"Jarina Mafzal City Corporation College, Port Link Rd, Chattogram",POINT (91.7851724 22.3171444),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11290719431,school,"Halishahar Munshipara High School, Abdul Latif Road, Chattogram",POINT (91.7838422 22.3160791),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11290745615,school,,POINT (91.7859089 22.3151773),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11290760835,college,"Chittagong Port Girls High School & College, Port Connecting Rd, Chattogram",POINT (91.7912046 22.320024),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11290775270,kindergarten,"Sunlit Kindergarten School, Port Link Road, Chattogram",POINT (91.7877727 22.3148892),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11290778871,school,"Shaplakuri kindergarten and High School, Halishahar, Chattogram",POINT (91.7931095 22.3217959),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11290783064,school,"Chittagong Port Handicapped School, Port Connecting Rd, Chattogram",POINT (91.7922857 22.3211118),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11299714605,school,"Niscintapara Primary School, Niscintapara, Chattogram",POINT (91.7873132 22.3082644),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11299714606,school,"Nishcintapara Govt. Primary School, Niscintapara, Chattogram",POINT (91.7875316 22.3081082),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11299743953,school,"Shikor Public School & College, Maiz Para Road, Chattogram",POINT (91.7864783 22.3056586),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11299845373,school,"Holy Kids Grammar School, Jonab Ali Peshkar Road, Maijpara, Chattogram",POINT (91.7879022 22.303562),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11299851989,school,"Halishahar Begumjan High School, South-Middle Halishahar, Chattogram",POINT (91.7889242 22.303317),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11299851990,school,"Begumjan High School, Halisahar, Chattogram",POINT (91.7884629 22.304188),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11301545654,school,"Shabuj Shathi Ideal School, M. A Aziz Road, Chattogram",POINT (91.78681 22.3004624),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11361291270,school,"South City School & College, Sheikh Mujib Road, Agrabad, Chattogram",POINT (91.8145562 22.3232124),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11380818657,school,"Nimtala Nahar Yunus Ideal Kindergarten School, Port Connecting Rd, Chattogram",POINT (91.7962498 22.3164426),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11380836125,school,"United Grammar School, Mokbulia School Road, Nimtala, Chattogram",POINT (91.7996341 22.3151438),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11380951498,college,"Chattogram Port College, Port Connecting Rd, Chattogram",POINT (91.7949405 22.3156237),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11383008344,school,"Nimtala High School, PC Road, Puraba Nimtala, Chattogram",POINT (91.7984737 22.3144659),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11383015493,college,"Port Authority Girls College, Port Colony Rd, Chattogram",POINT (91.7949417 22.314248),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11383039025,school,"Halishahar Moqbulia Govt. Primary School, PC Road, Puraba Nimtala, Chattogram",POINT (91.7988531 22.314433),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11384987350,college,"BN College Building, Zone Office,CEPZ, Chattogram",POINT (91.7801181 22.2907716),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11384987371,school,"Bangladesh Navy School and College, EPZ, Chattogram",POINT (91.7802998 22.2910595),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11384992316,school,"Green View Kinder Garden K.G. School, M. A Aziz Rd, Chattogram",POINT (91.7832157 22.2882202),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11385008539,kindergarten,"HRT Sugar Daddy, M. A Aziz Rd, Chattogram",POINT (91.7832575 22.2868091),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11385044380,school,"AL Hera Islami Academy and Madrasah,Bandartila, BEPZA School and College, Chattogram",POINT (91.7811788 22.2867033),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11385203260,college,"BEPZA Public School & College, Chattogram EPZ, Chattogram",POINT (91.7802646 22.2865395),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11393313847,school,"Matrix Coaching Center, Unnamed Road, Chattogram",POINT (91.782364 22.2840004),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11393314057,school,"Katakhali Ali Shah Government Primary School, M. A Aziz Road, Chattogram",POINT (91.7841646 22.2851195),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11393336731,library,"Saleh Library and Stationery, Bandartilla, M. A Aziz Rd, Chattogram",POINT (91.7841929 22.2858511),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11393367271,kindergarten,"Barnamala Kindergarten (Day Care), Bismillah Bhaban, Sailors Colony 2 Road, Chattogram",POINT (91.7836066 22.2831286),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11393373080,library,"Shah Jabbaria Library and General Store, Navy Hospital Gate ,C.E.P.Z, Chattogram",POINT (91.7842806 22.2829461),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11393383963,school,"Al Hera Islami Academy and Madrasah, BEPZA Residential Area, Chattogram",POINT (91.7774738 22.2845239),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11395414075,kindergarten,"Rangdhanu Adharsha KG School, Sailors Colony 2 Road, Chattogram",POINT (91.781117 22.282405),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11395431075,college,"Navy School & College, Sailors Colony 2 Road, Chattogram",POINT (91.7775664 22.2829049),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11395431153,school,"Khalpar Public School, Akmal Ali Road, Chattogram",POINT (91.7771678 22.2804183),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11395456326,school,"Ismail Sukani Government Primary School, Ali Monshi Rd, Chattogram",POINT (91.7795873 22.279911),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11395464107,school,"Parash Pathar B Ed College, CEPZ, Chattogram",POINT (91.776865 22.2791052),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11395475321,school,"Sidepara Public School, Akmol, Monir Manson, Akmol Ali-Madrazishah By Lane, Ali Monshi Rd,Chattogram",POINT (91.780535 22.2799546),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11395513392,school,"Hazrat Alishah (R) Ideal School, abdul mabud Rd, Chattogram",POINT (91.781927 22.280426),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11408914345,school,"Pakuakhali Satta Sanga, Unnamed Road, Chattogram",POINT (91.7746782 22.278328),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11409068779,school,"Chor Mera dusra Vidyalay, Akmol Ali Road, Khalpar, EPZ, Chattogram",POINT (91.7768983 22.2781798),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11409230483,school,"Mamata School And College, Ali Monshi Rd, Chattogram",POINT (91.7804588 22.2786442),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11409263302,school,"KHALPAR PUBLIC SCHOOL, CEPZ Area, Chattogram",POINT (91.7775949 22.2779764),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11409283811,school,"LAL MIAH MONZIL, Unnamed Road, Chattogram",POINT (91.7839888 22.2779314),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11411461018,school,"Amin-Rahima Ideal school, Narikeltola, M. A Aziz Rd, Chattogram",POINT (91.7862728 22.2759175),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11411527017,school,"ABC Public School, EPZ, S Alam B Alam Rd, Chattogram",POINT (91.7823306 22.2733915),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11411560550,school,"BEd Knowledge Fair School, Akmal Ali Road, Chattogram",POINT (91.7788362 22.2758234),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11411565858,school,"Mohammadia Government Primary School, Haque Lane, Chattogram",POINT (91.7859507 22.2741926),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11411588432,school,"South Chittagong Motor Driving School, Hawker Lane, Chattogram",POINT (91.7863795 22.2745918),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11411630080,school,"CDDL Navy School, Wasser Street, Chattogram",POINT (91.7802942 22.2694618),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11430359140,school,"CSM Primary School, Housing Colony Rd, Chattogram",POINT (91.7833311 22.2690639),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11430371868,school,"Hossen Ahammad Pada Sorkari Patomik Biddaloy-School, Old Post Office Rd, Chattogram",POINT (91.7853943 22.268039),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11430372926,school,"Patenga Public School, Netar goli, Chattogram",POINT (91.7801689 22.2671847),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11430381704,school,"Success Foundation, Wasi Gali, Joutho Abashik Colony Road, North Patenga, Chattogram",POINT (91.7840206 22.272682),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11430383028,college,"BEPZA Public school and College, Housing Colony Rd, Chattogram",POINT (91.7833796 22.269009),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11430445391,school,"Nure Madina Madrasha Chittagong, Steel Mill Bazar, North, Chattogram",POINT (91.7867396 22.2710126),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11430486996,school,"Hussain Ahmed Para Government Primary School, Old Post Office Rd, Chattogram",POINT (91.7850273 22.268018),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11430488015,school,"Hossen Ahmad Para Idil Academy, Old Post Office Rd, Chattogram",POINT (91.7838421 22.2679337),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11431662421,school,"Sun Rise K.G and high school, Chittagong Coastal Rd, Chattogram",POINT (91.7800368 22.2631322),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11431669508,school,"Muslimabad k.g school, Muslimabad Rd, Chattogram",POINT (91.7872534 22.2587421),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11431675669,school,"Y. W. C. A School, Muslimabad Rd, Chattogram",POINT (91.7863625 22.2590595),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11431684393,school,"Potenga High School, Muslimabad Rd, Chattogram",POINT (91.7911245 22.260064),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+node,11431718233,school,"Alhaz Hafizur Rahman Reg. Primary School, Ward No-40, Chattogram",POINT (91.7861136 22.2574284),,,,,,,,,,,,,,,,,,,1,1,north,1,16.32
+way,364229496,university,East Delta University,"POLYGON ((91.8113464 22.3216291, 91.8113387 22.3211335, 91.8115089 22.3211313, 91.8115165 22.3216268, 91.8113464 22.3216291))",,,,,,,,,,,,,,"[3682872296, 3682872297, 3682872294, 3682872295, 3682872296]",yes,University,,,1,1,north,1,16.32
+way,516327772,school,Port Authority High School,"POLYGON ((91.7944622 22.3156132, 91.7949557 22.3156157, 91.7949638 22.314932, 91.7945373 22.3147509, 91.7941631 22.3150561, 91.7944622 22.3156132))",,,,,,,,,,,,,,"[5040624564, 5040624563, 5040624562, 5040624561, 5040624560, 5040624564]",,,,,1,1,north,1,16.32
+way,654664040,school,Bangladesh Bank Colony High School Playground,"POLYGON ((91.8034127 22.324893, 91.8034101 22.324403, 91.8039572 22.3244129, 91.8039438 22.3248868, 91.8034127 22.324893))",,,,,,,,,,Bangladesh Bank Colony,,,,"[6134561255, 6134561254, 6134561253, 6134561252, 6134561255]",,,,,1,1,north,1,16.32
+way,846052307,school,Barek Miah High School,"POLYGON ((91.807104 22.3167071, 91.8071208 22.3164729, 91.8072505 22.316469, 91.8072358 22.3167109, 91.807104 22.3167071))",,,,,,,,1-10,,,,,,"[7893344778, 7893344779, 7893344780, 7893344781, 7893344778]",,,,,1,1,north,1,16.32
+relation,9102262,college,,"POLYGON ((91.7941968 22.3157182, 91.794326 22.3158149, 91.7951126 22.3157879, 91.7951172 22.3155907, 91.7951171 22.3152958, 91.795147 22.3149573, 91.7945426 22.3146941, 91.7938772 22.3152786, 91.7941968 22.3157182), (91.7944365 22.3157069, 91.7944714 22.3157069, 91.7944714 22.3156898, 91.7944235 22.3156898, 91.7944235 22.3156932, 91.7944245 22.3157677, 91.7943587 22.3158025, 91.7942224 22.3157141, 91.794179 22.3156536, 91.7943547 22.3155512, 91.7944163 22.3156449, 91.7944162 22.3156362, 91.794687 22.3156359, 91.7949579 22.3156355, 91.7949579 22.3156507, 91.7949723 22.3156507, 91.7949746 22.3149986, 91.7951046 22.314999, 91.7951019 22.3157521, 91.7949719 22.3157517, 91.7949722 22.3156727, 91.7949579 22.3156727, 91.794958 22.3157266, 91.7949414 22.3157266, 91.7948361 22.3157268, 91.7948362 22.3157585, 91.7944734 22.3157589, 91.7944734 22.3157484, 91.7944365 22.3157485, 91.7944365 22.3157069))",,,,,,,,,,,,,,"[[[6134243589, 6134243588, 6134243587, 6134243586, 6134243585, 6134243084, 6134243083, 6134243082, 6134243589], [5040631559, 5040631556, 6134243069, 6134243070, 5040631555, 5040631552, 5040631557, 5040631558, 5040631553, 5040631554, 6134243068, 6134243067, 5040631559], [5040631545, 5040631538, 5040631539, 5040631541, 5040631540, 5040631544, 6134243076, 6134243075, 6134243073, 5040631532, 5040631535, 5040631534, 5040631533, 6134243072, 6134243074, 5040631543, 8806226580, 5040631542, 6134243081, 5040631550, 5040631551, 5040631548, 5040631547, 5040631546, 6134243080, 6134243079, 5040631536, 6134243077, 6134243078, 5040631545]]]",,,"[654640846, 516328964, 516328961]",multipolygon,1,1,north,1,16.32
+relation,9102388,college,,"POLYGON ((91.7908707 22.3199743, 91.7915708 22.3206192, 91.7917639 22.320469, 91.7917788 22.3204393, 91.7918605 22.3202768, 91.7920026 22.3199778, 91.7919329 22.3198041, 91.7913733 22.3195311, 91.7911199 22.3197644, 91.7908707 22.3199743))",,,,,,,,,,,,,,"[[[6134403823, 6134403822, 6134403821, 6134403820, 6134403819, 6134403818, 5031880438, 6134403817, 6134403816, 6134403823]]]",,,[654648654],multipolygon,1,1,north,1,16.32

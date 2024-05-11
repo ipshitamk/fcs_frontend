@@ -1,0 +1,24 @@
+element_type,osmid,addr:city,amenity,name,operator,geometry,ward5wknn,index,points,rank,value
+node,2514658870,Chittagong,school,"North Kattali Bishwaspara Government Primary School, Chattogram",Government,POINT (91.7695046 22.3659106),4,7,south west,4,1.9500000000000002
+node,11185374057,,school,"Joytara Government Primary School, North Kattali Joytara GPS Cyclone Shelter, Salimpur, Chattogram",,POINT (91.7664114 22.3708523),4,7,south west,4,1.9500000000000002
+node,11187707799,,school,"Lucent Lion Tutorial School, Colonel Jones Road, Chattogram",,POINT (91.767772 22.3631409),4,7,south west,4,1.9500000000000002
+node,11187707804,,school,,,POINT (91.7610917 22.3631602),4,7,south west,4,1.9500000000000002
+node,11201586609,,school,,,POINT (91.7682947 22.3605287),4,7,south west,4,1.9500000000000002
+node,11201599945,,school,,,POINT (91.7744621 22.3638297),4,7,south west,4,1.9500000000000002
+node,11201601413,,school,"North Kattoli Munshi Para Primary School, Unnamed Road, Chattogram",,POINT (91.7737603 22.3652119),4,7,south west,4,1.9500000000000002
+node,11201601426,,school,"North Kattali Munshi Para Government Primary School, Chattogram",,POINT (91.7736211 22.3643823),4,7,south west,4,1.9500000000000002
+node,11201720524,,school,,,POINT (91.7712656 22.3646169),4,7,south west,4,1.9500000000000002
+node,11214959076,,school,,,POINT (91.769258 22.3584403),4,7,south west,4,1.9500000000000002
+node,11215147986,,school,,,POINT (91.7693447 22.3475967),4,7,south west,4,1.9500000000000002
+node,11217340335,,school,,,POINT (91.7713457 22.3370813),4,7,south west,4,1.9500000000000002
+node,11217365184,,school,নার্চার সরকারি প্রাথমিক বিদ্যালয়,,POINT (91.7707445 22.3354975),4,7,south west,4,1.9500000000000002
+node,11217370556,,school,,,POINT (91.770613 22.3358002),4,7,south west,4,1.9500000000000002
+node,11217406520,,college,"Halishahar Womens College, Halishahar Housing Estate, Chattogram",,POINT (91.7739882 22.3389786),4,7,south west,4,1.9500000000000002
+node,11217530680,,school,"Littles Grammar School, Halishahar Housing Estate, Chattogram",,POINT (91.7741297 22.3364064),4,7,south west,4,1.9500000000000002
+node,11282957265,,university,"Home Economics City Corporation College Chittagong, Port Link Rd, Chattogram",,POINT (91.7760929 22.3283782),4,7,south west,4,1.9500000000000002
+node,11282960245,,college,"Chittagong Govt. Physical Education College, Halishahar Rd, Chattogram",,POINT (91.7788839 22.3268346),4,7,south west,4,1.9500000000000002
+node,11282983086,,college,"Chittagong Mohila Polytechnic Institute, Port Link Rd, Chattogram",,POINT (91.7766293 22.3274874),4,7,south west,4,1.9500000000000002
+node,11283064422,,school,,,POINT (91.7730052 22.32605),4,7,south west,4,1.9500000000000002
+node,11290667308,,school,,,POINT (91.7770897 22.3249641),4,7,south west,4,1.9500000000000002
+node,11290683141,,school,"Anand Bazar Government Primary School, CEPZ Connecting Road, Chattogram",,POINT (91.7749344 22.3181209),4,7,south west,4,1.9500000000000002
+node,11299665025,,school,"Green bells kindergarten & Junior high School, Halishahar Rd, Chattogram",,POINT (91.7737476 22.3218719),4,7,south west,4,1.9500000000000002

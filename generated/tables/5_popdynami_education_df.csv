@@ -1,0 +1,19 @@
+element_type,osmid,amenity,name,geometry,nodes,addr:city,addr:housename,addr:postcode,addr:street,internet_access,source,website,ward5wknn,index,points,rank,value
+node,1848626345,school,Bangladesh Elementery School,POINT (91.8230185 22.3573238),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,1963084251,school,Bangladesh Women's Association (BWA) School,POINT (91.8223572 22.3535686),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,2341499276,school,East Nasirabad A.Jalil Primary School,POINT (91.8180442 22.3695431),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,2341948096,university,BGC Trust University,POINT (91.8106842 22.3805654),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,2571728366,school,Nasirabad Pulic School,POINT (91.8171222 22.3633665),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,2583439339,school,Police Line School,POINT (91.8174571 22.3521542),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,2943561418,college,Forest Academy,POINT (91.818962 22.3741469),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,4634202774,school,Premier University,POINT (91.8232455 22.3586336),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,9811383555,school,International Hope School Bangladesh,POINT (91.8244327 22.3658803),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,11436625664,school,"Omargani Government Primary School, Zakir Hossain Rd, Chattogram",POINT (91.8177172 22.3603816),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,11436626932,school,"Educatree Day Care School, Zakir Hossain Rd, Chattogram",POINT (91.817964 22.3604275),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,11436634194,school,"Learning Tree School, Jakir Hossain Road, Chattogram",POINT (91.8180352 22.3603528),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,11436642702,school,"Orbit Credit School And College, Zakir Hossain Rd, Chattogram",POINT (91.8172369 22.361294),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,11436645892,college,"Talent School and College, Zakir Hossain Rd, Chattogram",POINT (91.8175432 22.3614365),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,11436667633,kindergarten,"Child Heaven School Kindergarten, Zakir Hossain By Ln, Chattogram",POINT (91.8173006 22.3623389),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,11436693205,school,"William Carey Academy, Zakir Hossain Road By-Lane, East Nasirabad, Chattogram",POINT (91.8204614 22.362639),,,,,,,,,5,9,south west,5,1.6800000000000002
+node,11436694772,school,"Shaheen School, chittagong branch, Zakir Hossain By Ln, Chattogram",POINT (91.8198344 22.362785),,,,,,,,,5,9,south west,5,1.6800000000000002
+way,498459706,university,Asian University for Women,"POLYGON ((91.8236234 22.3584389, 91.8236165 22.3583365, 91.8236194 22.3582874, 91.8236196 22.358172, 91.8236202 22.3581096, 91.8236299 22.3580478, 91.8237312 22.3580459, 91.8239162 22.358049, 91.8239757 22.3580044, 91.8239808 22.3579165, 91.8239891 22.3577954, 91.8243563 22.3579243, 91.8243335 22.3580947, 91.8243284 22.3581332, 91.8243302 22.3582526, 91.824303 22.3582912, 91.8242308 22.3582898, 91.8241147 22.3582985, 91.8240021 22.3582969, 91.8240022 22.3584135, 91.8239984 22.3584391, 91.8236234 22.3584389))","[4898771221, 4898771222, 4898773345, 4898773346, 4898774618, 4898773347, 5006366530, 4898773348, 4898773349, 4898773350, 4898773351, 5006882432, 4898770716, 5006882429, 5006882434, 4898770720, 4898770719, 4898770718, 4898771226, 5006882443, 4898771225, 4898771221]",Chittagong,20/A,4000,M M Ali Road,yes,Personal Information,http://www.asian-university.org/,5,9,south west,5,1.6800000000000002

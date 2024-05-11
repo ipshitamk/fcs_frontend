@@ -1,0 +1,740 @@
+---
+format:
+  html:
+    theme: [source/custom.scss, none]
+editor: source
+execute:
+  echo: false
+  output: false
+---
+
+::: setup
+{{< include source/scrollytelling.qmd >}}
+
+```{r}
+#| include: false
+# Read functions & packages
+# Only the github version of leaflet supports terra, in place of raster, which is now required as sp (on which raster depends) is being deprecated
+# devtools::install_github('rstudio/leaflet')
+source("source/fns.R")
+source("source/helpers.R")
+
+city_dir <- paste_path("mnt/", readLines("city-dir.txt"))
+user_input_dir <- paste_path(city_dir, "01-user-input/")
+process_output_dir <- paste_path(city_dir, "02-process-output/")
+spatial_dir <- paste_path(process_output_dir, "spatial/")
+output_dir <- paste_path(city_dir, "03-render-output/")
+styled_maps_dir <- "generated/styled-maps/"
+
+# City parameters
+city_params <- read_yaml(paste_path(user_input_dir, "city_inputs.yml"))
+# cities <- list.files("cities")
+city <- city_params$city_name
+city_string <- tolower(city) %>% stringr::str_replace_all(" ", "-")
+country <- city_params$country
+
+# Load map layer parameters
+layer_params <- read_yaml('source/layers.yml')
+```
+
+```{r}
+#| include: false
+# Visualization parameters (Am I using all of them?)
+basemap_opacity <- 0.3
+legend_opacity <- 0.8
+vwidth <- 900
+vheight <- vwidth
+
+# this is to enable fractional zoom in mapshot
+useragent <- 'Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0'
+```
+
+---
+title: "`r paste(city, country, sep = ', ')` Future City Scan"
+---
+
+```{r}
+# Get text
+city_text <- read_md(paste0(user_input_dir, "text-files/manual-text.md"))
+generic_text <- read_yaml("source/generic-text.yml")
+slide_texts <- merge_lists(city_text, generic_text)
+```
+
+```{r}
+#| include: false
+
+# Define the AOI
+aoi <- st_read(paste_path(user_input_dir, "AOI"))
+aoi_bounds <- st_bbox(aoi)
+
+# Inititate the map here, will build on it in each "slide"
+all_maps <- plot_basemap("vector")
+pop_maps <-plot_basemap("satellite")
+gdp_maps <-plot_basemap("vector")
+urbanland_maps <-plot_basemap("vector")
+#ssp layers 
+ssp2_2050 <-plot_basemap("vector")
+ssp2_2100 <-plot_basemap("vector")
+ssp5_2050 <-plot_basemap("vector")
+ssp5_2100 <-plot_basemap("vector")
+
+# Keep track of added layers
+added_layers <- c()
+pop_layers <- c()
+gdp_layers <-c()
+ul_layers <-c()
+ahe_layers <-c()
+uhi_layers <-c()
+
+
+
+```
+:::
+
+::: topbar
+# {{< meta title >}}
+
+::: navigation
+```{r}
+library(htmltools)
+
+# Define function to handle selection
+selectYearAndSSP <- function(year, ssp) {
+  cat("Selected Year:", year, "\n")
+  cat("Selected SSP:", ssp, "\n")
+}
+
+
+options <- list(
+  list(year = '2050', ssp = 'SSP2'),
+  list(year = '2100', ssp = 'SSP2'),
+  list(year = '2050', ssp = 'SSP5'),
+  list(year = '2100', ssp = 'SSP5')
+)
+
+dropdownItems <- lapply(options, function(option) {
+  div(
+    class = "dropdown-item",
+    onmouseover = sprintf("selectYearAndSSP('%s', '%s')", option$year, option$ssp),  # Call function on hover
+    paste0(option$year, " - ", option$ssp)
+  )
+})
+
+dropdownWrapper <- div(
+  class = "dropdown",
+  tags$button(
+    class = "btn btn-primary dropdown-toggle",
+    type = "button",
+    id = "dropdownMenuButton",
+    `data-toggle` = "dropdown",
+    `aria-haspopup` = "true",
+    `aria-expanded` = "false",
+    style = "color: black; background-color: transparent; border: none; font-family: Arial, sans-serif; font-size: 16px; padding-top: 0px; padding-bottom: 25px;",
+    "Select Year and SSP"
+  ),
+  div(
+    class = "dropdown-menu",
+    `aria-labelledby` = "dropdownMenuButton",
+    dropdownItems
+  )
+)
+
+# Custom JavaScript to show dropdown on hover
+js_code <- '
+$(".dropdown").hover(
+  function() {
+    $(this).addClass("show");
+    $(this).find(".dropdown-menu").addClass("show");
+  },
+  function() {
+    $(this).removeClass("show");
+    $(this).find(".dropdown-menu").removeClass("show");
+  }
+);
+'
+
+dropdownWrapper <- tagList(
+  dropdownWrapper,
+  tags$script(HTML(js_code))
+)
+
+dropdownWrapper
+```
+
+```{r}
+#| output: asis
+# Dynamically add sections to table of contents ... there's probably a better way?
+sections <- readLines("index1.qmd") %>%
+  subset(str_detect(., "^##")) %>% str_replace("# ", "- ") %>% str_replace_all("#", "  ")
+
+anchors <- sections %>% str_extract("^\\s*- (.*$)", group = T) %>% tolower() %>% str_replace_all(c("[^a-z\\s]" = "", "\\s+" = "-")) %>%
+  str_replace("(.*)", "(#\\1)")
+
+paste0(str_replace(sections, "(^\\s*- )(.+$)", "\\1[\\2]"), anchors) %>% { cat("- <span id='dynamic-header'>Future City Scan</span>  &or;", ., sep = "\n") }
+
+dropdownWrapper
+```
+:::
+:::
+
+::: text-column
+# {{< meta title >}}
+
+## 1. Setting the Context
+
+### 1.1 Basic City Information
+
+```{r}
+# Add a map layer? But it's just the AOI
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$setting_the_context$basic_city_info)
+```
+
+<!-- ### The State of Urban Infrastructure and Service Delivery -->
+
+<!-- ```{r} -->
+
+<!-- #| output: asis -->
+
+<!-- print_slide_text(slide_texts$setting_the_context$infrastructure_and_service_delivery) -->
+
+<!-- ``` -->
+
+## 2. Population and Demographic Trends
+
+### 2.1 Population Growth
+
+<!-- ![](generated/generated/plots/oxford-pop-growth.png) -->
+
+```{r, output=TRUE}
+# saveRDS(density_plot, "generated/plots/density.rds")
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+popdynamics <-read.csv("generated/popdynamics.csv")
+names(popdynamics)<-sapply(str_remove_all(colnames(popdynamics),"X"),"[")
+m <- as.matrix(popdynamics[, -1])
+rownames(m) <- popdynamics[['Scenario']]
+heatmap(t(m),Colv = NA, Rowv = NA,cexCol=1)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_demographics$population_growth)
+```
+
+### 2.1 Population Growth (chart)
+
+<!-- ![](generated/plots/oxford-pop-density-scatter.png) -->
+
+```{r, output=TRUE}
+# saveRDS(density_plot, "generated/plots/density.rds")
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+rownames(m) <- popdynamics[['Scenario']]
+matplot(t(m), type = "l",lty = 1,  xlab = "SSP Scenario", 
+        ylab = "Population Growth")
+legend("topleft", legend = rownames(m),col = 1:ncol(t(m)), lty = 1, cex = 0.8)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_demographics$population_density_chart)
+```
+
+### 2.1 Population Density SSP2_2050
+
+```{r}
+#| include: false
+# Read population data
+pop <- fuzzy_read(spatial_dir, "popdynamics_SSP2_2050")
+values(pop)[values(pop) == 0] <-NA
+add_pop_layer <- create_layer_function(data = pop, yaml_key = "pop",group_id="population-density-ssp2_2050",title="Population Density")
+all_maps <- add_pop_layer(all_maps)
+ssp2_2050 <- add_pop_layer(ssp2_2050)
+  # This could be put into the add_*_layer() functions themselves
+  # hideGroup("population-density")
+pop_layers <- c(pop_layers, "population-density-ssp2_2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_demographics$population_density_SSP2_2050)
+```
+
+### 2.1 Population Density SSP2_2100
+
+```{r}
+#| include: false
+# Read population data
+pop1 <- fuzzy_read(spatial_dir, "clipped_popdynamics_SSP2_2100")
+values(pop1)[values(pop1) == 0] <-NA
+add_pop1_layer <- create_layer_function(data = pop1, yaml_key = "pop",group_id="population-density-ssp2_2100",title="Population Density")
+all_maps <- add_pop1_layer(all_maps)
+ssp2_2100 <-add_pop1_layer(ssp2_2100)
+  # This could be put into the add_*_layer() functions themselves
+  # hideGroup("population-density")
+pop_layers <- c(pop_layers, "population-density-ssp2_2100")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_demographics$population_density_SSP2_2100)
+```
+
+### 2.1 Population Density SSP5_2050
+
+```{r}
+ #include: false
+pop2 <- fuzzy_read(spatial_dir, "popdynamics_SSP5_2050")
+values(pop2)[values(pop2) == 0] <-NA
+add_pop2_layer <- create_layer_function(data = pop2, yaml_key = "pop",group_id="population-density-ssp5_2050",title="Population Density")
+all_maps <- add_pop2_layer(all_maps)
+ssp5_2050 <- add_pop1_layer(ssp5_2050)
+# # #   # This could be put into the add_*_layer() functions themselves
+# # #   # hideGroup("population-density")
+pop_layers <- c(pop_layers, "population-density-ssp5_2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_demographics$population_density_SSP5_2050)
+```
+
+### 2.1 Population Density SSP5_2100
+
+```{r}
+#| include: false
+# Read population data
+pop3 <- fuzzy_read(spatial_dir, "popdynamics_SSP5_2100")
+values(pop3)[values(pop3) == 0] <-NA
+add_pop3_layer <- create_layer_function(data = pop3, yaml_key = "pop",group_id="population-density-ssp5_2100",title="Population Density")
+
+all_maps <- add_pop3_layer(all_maps)
+ssp5_2100 <- add_pop3_layer(ssp5_2100)
+  # This could be put into the add_*_layer() functions themselves
+  # hideGroup("population-density")
+pop_layers <- c(pop_layers, "population-density-ssp5_2100")
+```
+
+```{r}
+# add_pop3_layer <- create_layer_function(data = pop3, yaml_key = "pop",title="POP",group_id="population-density-ssp5_2050")
+# add_pop3_layer(plot_basemap())
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_demographics$population_density_SSP5_2100)
+```
+
+## 3. GDP
+
+### 3.1 GDP Projections
+
+<!-- ![](generated/generated/plots/oxford-pop-growth.png) -->
+
+```{r, output=TRUE}
+# saveRDS(density_plot, "generated/plots/density.rds")
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+gdp <-read.csv("generated/gdp.csv")
+names(gdp)<-sapply(str_remove_all(colnames(gdp),"X"),"[")
+g <- as.matrix(gdp[, -1])
+rownames(g) <- gdp[['Scenario']]
+heatmap(t(g),Colv = NA, Rowv = NA,cexCol=1)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_growth)
+```
+
+### 3.1 Projected GDP Growth(chart)
+
+<!-- ![](generated/plots/oxford-pop-density-scatter.png) -->
+
+```{r, output=TRUE}
+# saveRDS(density_plot, "generated/plots/density.rds")
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+rownames(g) <- gdp[['Scenario']]
+matplot(t(g), type = "l",lty = 1,  xlab = "SSP Scenario",
+        ylab = "GDP Growth")
+legend("topleft", legend = rownames(g),col = 1:ncol(t(g)), lty = 1, cex = 0.8)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_chart)
+```
+
+### 3.1 GDP SSP2_2050
+
+```{r}
+#| include: false
+gdp <- fuzzy_read(spatial_dir, "gdp_SSP2_2050")
+#gdp <- fuzzy_read(spatial_dir, "gdp_SSP2_2050.tif", rast)
+values(gdp)[values(gdp) == 0] <-NA
+#gdp <- as.polygons(gdp, digits=4)
+add_gdp_layer <- create_layer_function(data = gdp, yaml_key = "gdp",group_id="gdp-ssp2_2050",title="GDP")
+all_maps <- add_gdp_layer(all_maps)
+ssp2_2050 <- add_gdp_layer(ssp2_2050)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+gdp_layers <- c(gdp_layers, "gdp-ssp2_2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_SSP2_2050)
+```
+
+### 3.1 GDP SSP2_2100
+
+```{r}
+#| include: false
+ gdp1 <- fuzzy_read(spatial_dir, "gdp_SSP2_2100")
+values(gdp1)[values(gdp1) == 0] <-NA
+ add_gdp1_layer <- create_layer_function(data = gdp1, yaml_key = "gdp",group_id="gdp-ssp2_2100",title="GDP")
+ all_maps <- add_gdp1_layer(all_maps)
+ ssp2_2100 <-add_gdp1_layer(ssp2_2100)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+ gdp_layers <- c(gdp_layers, "gdp-ssp2_2100")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_SSP2_2100)
+```
+
+### 3.1 GDP SSP5_2050
+
+```{r}
+#| include: false
+gdp2 <- fuzzy_read(spatial_dir, "gdp_SSP5_2050")
+values(gdp2)[values(gdp2) == 0] <-NA
+ add_gdp2_layer <- create_layer_function(data = gdp2, yaml_key = "gdp",group_id="gdp-ssp5_2050",title="GDP")
+ all_maps <- add_gdp2_layer(all_maps)
+ssp5_2050 <-add_gdp2_layer(ssp5_2050)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+ gdp_layers <- c(gdp_layers, "gdp-ssp5_2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_SSP5_2050)
+```
+
+### 3.1 GDP SSP5_2100
+
+```{r}
+#| include: false
+ gdp3 <- fuzzy_read(spatial_dir, "gdp_SSP5_2100")
+values(gdp3)[values(gdp3) == 0] <-NA
+ add_gdp3_layer <- create_layer_function(data = gdp3, yaml_key = "gdp",group_id="gdp-ssp5_2100",title="GDP")
+ all_maps <- add_gdp3_layer(all_maps)
+ ssp5_2100 <-add_gdp3_layer(ssp5_2100)
+ gdp_layers <- c(gdp_layers, "gdp-ssp5_2100")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_SSP5_2100)
+```
+
+## 3. Heat Flux
+
+### 3.1 Heatflux Growth(chart)
+
+<!-- ![](generated/plots/oxford-pop-density-scatter.png) -->
+
+```{r, output=TRUE}
+# saveRDS(density_plot, "generated/plots/density.rds")
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+ahe_graph <-read.csv("generated/heatflux.csv")
+names(ahe_graph)<-sapply(str_remove_all(colnames(ahe_graph),"X"),"[")
+h <- as.matrix(ahe_graph[, -1])
+rownames(h) <- ahe_graph[['Scenario']]
+matplot(t(h), type = "l",lty = 1,  xlab = "SSP3",
+        ylab = "Heatflux Growth")
+legend("topleft", legend = rownames(h),col = 1:ncol(t(h)), lty = 1, cex = 0.8)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_ahe$ahe_growth)
+```
+
+### 3.1 Heat Flux SSP3_2050
+
+```{r}
+#| include: false
+ahe <- fuzzy_read(spatial_dir, "AHE_ssp3_2050")
+values(ahe)[values(ahe) == 0] <-NA
+ add_ahe_layer <- create_layer_function(data = ahe, yaml_key = "ahe",group_id="heat-flux-ssp3_2050",title="Heat Flux")
+ all_maps <- add_ahe_layer(all_maps)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+ ahe_layers <- c(ahe_layers, "heat-flux-ssp3_2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_ahe$ahe_SSP3_2050)
+```
+
+## 4. Urban Land
+
+### 4.1 Urban Land Projections
+
+<!-- ![](generated/generated/plots/oxford-pop-growth.png) -->
+
+```{r, output=TRUE}
+# saveRDS(density_plot, "generated/plots/density.rds")
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+ul_graph <-read.csv("generated/urbanland.csv")
+names(ul_graph)<-sapply(str_remove_all(colnames(ul_graph),"X"),"[")
+u <- as.matrix(ul_graph[, -1])
+rownames(u) <- ul_graph[['Scenario']]
+heatmap(t(u),Colv = NA, Rowv = NA,cexCol=1)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_ul$ul_growth)
+```
+
+### 4.1 Urban Land Growth(chart)
+
+<!-- ![](generated/plots/oxford-pop-density-scatter.png) -->
+
+```{r, output=TRUE}
+# saveRDS(density_plot, "generated/plots/density.rds")
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+matplot(t(u), type = "l",lty = 1,  xlab = "SSP Scenario",
+        ylab = "Urban Land Growth")
+legend("topleft", legend = rownames(u),col = 1:ncol(t(u)), lty = 1, cex = 0.8)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_ul$ul_chart)
+```
+
+### 4.1 Urban Land SSP2_2050
+
+```{r}
+#| include: false
+ul <- fuzzy_read(spatial_dir, "urbanland_ssp2_2050")
+values(ul)[values(ul) == 0] <-NA
+add_ul_layer <- create_layer_function(data = ul, yaml_key = "ul",group_id="urban-land-ssp2_2050",title="Urban Land")
+all_maps <- add_ul_layer(all_maps)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+ul_layers <- c(ul_layers, "urban-land-ssp2_2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_ul$ul_SSP2_2050)
+```
+
+### 4.1 Urban Land SSP2_2100
+
+```{r}
+#| include: false
+ul1 <- fuzzy_read(spatial_dir, "urbanland_ssp2_2100")
+values(ul1)[values(ul1) == 0] <-NA
+add_ul1_layer <- create_layer_function(data = ul1, yaml_key = "ul",group_id="urban-land-ssp2_2100",title="Urban Land")
+ all_maps <- add_ul1_layer(all_maps)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+ul_layers <- c(ul_layers, "urban-land-ssp2_2100")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_ul$ul_SSP2_2100)
+```
+
+### 4.1 Urban Land SSP5_2050
+
+```{r}
+#| include: false
+ul2 <- fuzzy_read(spatial_dir, "urbanland_ssp5_2050")
+values(ul2)[values(ul2) == 0] <-NA
+add_ul2_layer <- create_layer_function(data = ul2, yaml_key = "ul",group_id="urban-land-ssp5_2050",title="Urban Land")
+all_maps <- add_ul2_layer(all_maps)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+ul_layers <- c(ul_layers, "urban-land-ssp5_2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_ul$ul_SSP5_2050)
+```
+
+### 4.1 Urban Land SSP5_2100
+
+```{r}
+#| include: false
+ul3 <- fuzzy_read(spatial_dir, "urbanland_ssp5_2100")
+values(ul3)[values(ul3) == 0] <-NA
+ add_ul3_layer <- create_layer_function(data = ul3, yaml_key = "ul",group_id="urban-land-ssp5_2100",title="Urban Land")
+ all_maps <- add_ul3_layer(all_maps)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+ ul_layers <- c(ul_layers, "urban-land-ssp5_2100")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_ul$ul_SSP5_2100)
+```
+
+## 5. Climate
+
+### 5.1 Temperature
+
+```{r, output=TRUE}
+temp_graph <- read.csv("generated/temperature.csv")
+# Convert "date" column to Date type
+temp_graph$date <- as.Date(temp_graph$time)
+# Convert "date" column to Date type
+visualize_temperature(temp_graph,city)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_climate$temp_graph)
+```
+
+### 5.2 Precipitation
+
+```{r, output=TRUE}
+precip_graph <- read.csv("generated/precipitation.csv")
+# Convert "date" column to Date type
+precip_graph$date <- as.Date(precip_graph$time)
+# Change these colors
+visualize_precipitation(precip_graph,city)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_climate$precip_graph)
+```
+
+## 6. Heat related Impacts
+
+### 6.1 Urban Heat Island Projections
+
+<!-- ![](generated/generated/plots/oxford-pop-growth.png) -->
+
+```{r, output=TRUE}
+# saveRDS(density_plot, "generated/plots/density.rds")
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+heat_graph <-read.csv("generated/urbanheatisland.csv")
+names(heat_graph)<-sapply(str_remove_all(colnames(heat_graph),"X"),"[")
+heat <- as.matrix(heat_graph[, -1])
+rownames(heat) <- heat_graph[['Scenario']]
+matplot(t(heat), type = "l",lty = 1,  xlab = "SSP Scenario",
+        ylab = "Urban Heat Island")
+legend("topleft", legend = rownames(heat),col = 1:ncol(t(heat)), lty = 1, cex = 0.8)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_uhi$uhi_chart)
+```
+
+### 6.1 Urban Heat Island SSP5 2050 Day
+
+```{r}
+#| include: false
+uhi <- fuzzy_read(spatial_dir, "uhi-ssp5_day_sum_reproj")
+add_uhi_layer <- create_layer_function(data = uhi, yaml_key = "uhi",group_id="urban-heat-island-ssp5-2050-day",title="Urban Heat Island")
+all_maps <- add_uhi_layer(all_maps)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+uhi_layers <- c(uhi_layers, "urban-heat-island-ssp5-2050-day")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_uhi$uhi_SSP5_day)
+```
+
+### 6.1 Urban Heat Island SSP5 2050 Night
+
+```{r}
+#| include: false
+uhi1 <- fuzzy_read(spatial_dir, "uhi-ssp5_nig_sum_reproj")
+values(uhi1)[values(uhi1) == 0] <-NA  
+uhi1 <- terra::project(uhi1, "epsg:4326") 
+add_uhi1_layer <- create_layer_function(data = uhi1, yaml_key = "uhi",group_id="urban-heat-island-ssp5-2050-night",title="Urban Heat Island")
+all_maps <- add_uhi1_layer(all_maps)
+#   # This could be put into the add_*_layer() functions themselves
+#   # hideGroup("population-density")
+uhi_layers <- c(uhi_layers, "urban-heat-island-ssp5-2050-night")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_uhi$uhi_SSP5_night)
+```
+
+### 6.2.7 Water scarcity
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$water_chart)
+```
+
+## 6 Biophysical Impacts
+
+### 6.3.1 Future Erosion
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_erosion$erosion_chart)
+```
+
+### 6.3.2 Tropical Cyclones
+
+```{r, output=TRUE}
+cyclone_graph <-read.csv("generated/cyclones.csv")
+cyclone_plot <- visualize_cyclones(cyclone_graph,city,country)
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_cyclones$cyclones_chart)
+```
+
+```{r}
+added_layers <-c(pop_layers, gdp_layers,ul_layers,ahe_layers,uhi_layers)
+```
+
+### Feedback
+
+```{ojs}
+//| output: true
+viewof ul3 = Inputs.textarea({placeholder: "What are the key takeaways from this data?", width: "100%"})
+// I could set submit: true to require a submit button, but I think it's easier if they don't have to
+// Only helpful if we're doing something other than letting them record everything at the end
+```
+:::
+
+::: maps
+```{r}
+#| output: true
+all_maps %>%
+  add_aoi() %>% 
+  addLayersControl(
+    overlayGroups = added_layers,
+    options = layersControlOptions(collapsed = FALSE))
+  # If I want to use javascript directly I could use htmlwidgets::onRender(),
+  # or maybe just an observable cell
+```
+:::

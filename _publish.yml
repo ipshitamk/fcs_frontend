@@ -6,3 +6,7 @@
   quarto-pub:
     - id: aa8dfc11-858e-467e-961f-6af27d85487a
       url: 'https://bennotkin.quarto.pub/gagarin-city-scan-form'
+- source: index3.qmd
+  quarto-pub:
+    - id: f4939dcc-139a-4bc9-b558-0b2aff4baba0
+      url: 'https://fcs.quarto.pub/r-paste(city-country-sep----future-city-scan'

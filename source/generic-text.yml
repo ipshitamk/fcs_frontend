@@ -183,3 +183,132 @@ risk_identification:
       Map data from OpenStreetMap.
       Criticality is measured by calculating *betweenness* for each segment. Betweenness for a segment is calculated by mapping the shortest path from each intersection to every other intersection, and then taking the percentage of all trips that use that segment.
 # SECTION 8 LOCAL INSTITUTIONS AND PLANNING
+# SECTION 9 POPULATION DYNAMICS
+FCS_demographics:
+  population_growth:
+    method: Population figures are typically used as a denominator for many indicators, and are a measure of demand for services. The line chart above summarizes the city's population change according to census and other public data. High growth of urban populations, caused by rates of natural increase (more births than deaths) in urban areas, migration from rural to urban areas, and the transformation of rural settlements into urban places, puts pressure on cities to meet the new demand.
+    footnote: Wang et al (2022)
+  population_density_chart:
+    method: Density is calculated using the most recent census population recorded and the official land area occupied by the city, and is an important measure of how cities function. Higher population density enables governments to more easily deliver essential infrastructure and services in urban areas at relatively low cost per capita. However, such benefits do not materialize automatically or inevitably. Whether a city's population dynamics pose challenges or offer opportunities typically depends on the policies in play.
+    footnote: Populations and areas are from CityPopulation.de. Note that the extents used by CityPopulation.de may differ from the AOIs used by the City Scans. The area for Gagarin (Combined) uses the combined areas of each of the six included villages; it does not include the space in between.
+  population_density:
+    method: This map estimates population numbers per 10,000 m^2^ grid cell. It provides a more consistent representation of population distributions across different landscapes than administrative unit counts. Knowing where people are is critical for impact assessments and intervention plans, especially those focused on service delivery, food security, climate change, network systems and natural disasters.
+    footnote: Wang et al (2022)
+  population_density_SSP2_2050:
+    method: This map estimates population numbers per 10,000 m^2^ grid cell. It provides a more consistent representation of population distributions across different landscapes than administrative unit counts. Knowing where people are is critical for impact assessments and intervention plans, especially those focused on service delivery, food security, climate change, network systems and natural disasters.
+    footnote: Wang et al (2022)
+  population_density_SSP2_2100:
+    method: This map estimates population numbers per 10,000 m^2^ grid cell. It provides a more consistent representation of population distributions across different landscapes than administrative unit counts. Knowing where people are is critical for impact assessments and intervention plans, especially those focused on service delivery, food security, climate change, network systems and natural disasters.
+    footnote: Wang et al (2022)
+  population_density_SSP5_2050:
+    method: This map estimates population numbers per 10,000 m^2^ grid cell. It provides a more consistent representation of population distributions across different landscapes than administrative unit counts. Knowing where people are is critical for impact assessments and intervention plans, especially those focused on service delivery, food security, climate change, network systems and natural disasters.
+    footnote: Wang et al (2022)
+  population_density_SSP5_2100:
+    method: This map estimates population numbers per 10,000 m^2^ grid cell. It provides a more consistent representation of population distributions across different landscapes than administrative unit counts. Knowing where people are is critical for impact assessments and intervention plans, especially those focused on service delivery, food security, climate change, network systems and natural disasters.
+    footnote: Wang et al (2022)
+# SECTION 10 GDP
+FCS_gross_domestic_product:
+  gdp_growth:
+    method: GDP figures are typically used as a denominator for many indicators, and are a measure of demand for services. The line chart above summarizes the city's population change according to census and other public data. High growth of urban populations, caused by rates of natural increase (more births than deaths) in urban areas, migration from rural to urban areas, and the transformation of rural settlements into urban places, puts pressure on cities to meet the new demand.
+    footnote: Murakami et al (2021)
+  gdp_chart: 
+    method: The map illustrates monthly temporal changes from 2014 to 2022 in the emission of nighttime lights, indicating changes in economic activity. Positive values represent an increase in the intensity of nighttime light emission and, by proxy, economic activity, while negative values represent a decrease in the intensity of nighttime light emission, and economic activity.
+    footnote: Murakami et al (2021)
+  gdp_SSP2_2050:
+    method: This map estimates GDP growth per 10,000 m^2^ grid cell for SSP2 in 2050. 
+    footnote: Murakami et al (2021)
+  gdp_SSP2_2100:
+    method: This map estimates GDP growth per 10,000 m^2^ grid cell for SSP2 in 2100. 
+    footnote: Murakami et al (2021)
+  gdp_SSP5_2050:
+    method: This map estimates GDP growth per 10,000 m^2^ grid cell for SSP5 in 2050. 
+    footnote: Murakami et al (2021)
+  gdp_SSP5_2100:
+    method: This map estimates GDP growth per 10,000 m^2^ grid cell for SSP5 in 2100. 
+    footnote: Murakami et al (2021)
+# SECTION 11 ANTHROPOGENIC HEAT FLUX
+FCS_ahe:
+  ahe_growth:
+    method: Anthropogenic heat flux is human-induced heat emitted into the atmosphere. The above line graph represents the increase in anthropogenic heat in the atmosphere up to 2050.
+    footnote: Varquez et al (2021)
+  ahe_SSP3_2050:
+    method: This map estimates anthropogenic heat flux per 1 km^2^ grid cell for SSP3 in 2050. 
+    footnote: Varquez et al (2021)
+
+# SECTION 12 URBAN LAND
+FCS_ul:
+  ul_growth:
+    method: SSP-consistent spatial urban land projections and base year grids based on the Shared Socioeconomic Pathways (SSPs) data at a resolution of 1-km (about 30 arc-seconds) for climate, socioeconomic, environmental, and other related research. 
+    footnote: Gao & Pesaresi (2021)
+  ul_SSP2_2050:
+    method: This map estimates urban land expansion per 1 km^2^ grid cell for SSP2 in 2050. 
+    footnote: Gao & Pesaresi (2021)
+  ul_SSP2_2100:
+    method: This map estimates urban land expansion per 1 km^2^ grid cell for SSP2 in 2100. 
+    footnote: Gao & Pesaresi (2021)
+  ul_SSP5_2050:
+    method: This map estimates urban land expansion per 1 km^2^ grid cell for SSP5 in 2050. 
+    footnote: Gao & Pesaresi (2021)
+  ul_SSP5_2100:
+    method: This map estimates urban land expansion per 1 km^2^ grid cell for SSP5 in 2100. 
+    footnote: Gao & Pesaresi (2021)
+
+# SECTION 13 CLIMATE
+FCS_climate:
+  temp_graph:
+    method: Temperature-related variables are generally used to give indication on potential urban heat stress.
+    footnote: World Bank Climate Change Knowledge Portal
+  precip_graph:
+    method: Water-related variables, in an urban setting, are generally used to give indication on potential pluvial flooding.
+    footnote: World Bank Climate Change Knowledge Portal
+
+# SECTION 13 URBAN HEAT ISLAND
+FCS_uhi:
+  uhi_growth:
+    method: Projecting global urban land expansion and heat island intensification through 2050, for RCP 4.5
+    footnote: Huang, K., Li, X., Liu, X., & Seto, K. C. (2019)
+  uhi_chart:
+    method: Projecting global urban land expansion and heat island intensification through 2050, for RCP 4.5
+    footnote: Huang, K., Li, X., Liu, X., & Seto, K. C. (2019)
+  uhi_SSP5_day:
+    method: This map estimates urban heat island effects per 5 km^2^ grid cell for SSP5 in 2050 during the day. 
+    footnote: Huang, K., Li, X., Liu, X., & Seto, K. C. (2019)
+  uhi_SSP5_night:
+    method: This map estimates urban heat island effects per 5 km^2^ grid cell for SSP5 in 2050 during the night. 
+    footnote: Huang, K., Li, X., Liu, X., & Seto, K. C. (2019)
+
+# SECTION 14 WATER 
+FCS_water:
+  pluvial_flooding_2020:
+    method: |
+      Pluvial, or surface water flooding, is caused when heavy rainfall creates a flood event independent of an overflowing water body. It can occur in any urban area — even higher elevation areas that lie above coastal and river floodplains.
+      The infrastructure assets shown here are provided by OpenStreetMap. There may be other roads, health facilities, schools, fire stations and police stations that are not cataloged by OpenStreetMap.
+    footnote: |
+      Map data from OpenStreetMap and Fathom, “Flood Hazard: Global 3.0”. See Data Notes for more on the Fathom dataset.
+      OpenStreetMap data may not include all facilities.
+  pluvial_flooding_SSP2_2050:
+    method: |
+      Pluvial, or surface water flooding, is caused when heavy rainfall creates a flood event independent of an overflowing water body. It can occur in any urban area — even higher elevation areas that lie above coastal and river floodplains.
+      The infrastructure assets shown here are provided by OpenStreetMap. There may be other roads, health facilities, schools, fire stations and police stations that are not cataloged by OpenStreetMap.
+    footnote: |
+      Map data from OpenStreetMap and Fathom, “Flood Hazard: Global 3.0”. See Data Notes for more on the Fathom dataset.
+      OpenStreetMap data may not include all facilities.
+  pluvial_flooding_SSP2_2080:
+    method: |
+      Pluvial, or surface water flooding, is caused when heavy rainfall creates a flood event independent of an overflowing water body. It can occur in any urban area — even higher elevation areas that lie above coastal and river floodplains.
+      The infrastructure assets shown here are provided by OpenStreetMap. There may be other roads, health facilities, schools, fire stations and police stations that are not cataloged by OpenStreetMap.
+    footnote: |
+      Map data from OpenStreetMap and Fathom, “Flood Hazard: Global 3.0”. See Data Notes for more on the Fathom dataset.
+      OpenStreetMap data may not include all facilities.
+  water_chart:
+    footnote: He, C., Liu, Z., Wu, J. et al. Future global urban water scarcity and potential solutions. Nat Commune 12, 4667 (2021).
+
+# SECTION 15 Erosion 
+FCS_erosion:
+  erosion_chart:
+    footnote: Vousdoukas, M.I., Ranasinghe, R., Mentaschi, L. et al. Sandy coastlines under threat of erosion. Nat. Clim. Chang. 10, 260–263 (2020).
+
+# SECTION 16 Cyclones
+FCS_cyclones:
+  cyclones_chart:
+    footnote: Bloemendaal, N., de Moel, H., Martinez, A. B., Muis, S., Haigh, I. D., van der Wiel, K., ... & Aerts, J. C. (2022). A globally consistent local-scale assessment of future tropical cyclone risk. Science advances, 8(17). 

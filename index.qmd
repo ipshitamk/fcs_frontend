@@ -126,7 +126,7 @@ print_slide_text(slide_texts$setting_the_context$basic_city_info)
 <!-- ![](generated/generated/plots/oxford-pop-growth.png) -->
 ```{r, output=TRUE}
 # saveRDS(pop_growth_plot, "generated/generated/plots/pop-growth.rds")
-ggplotly(readRDS("generated/plots/pop-growth.rds"))
+#ggplotly(readRDS("generated/plots/pop-growth.rds"))
 ```
 
 ```{r}
@@ -139,7 +139,7 @@ print_slide_text(slide_texts$demographics$population_growth)
 <!-- ![](generated/plots/oxford-pop-density-scatter.png) -->
 ```{r, output=TRUE}
 # saveRDS(density_plot, "generated/plots/density.rds")
-ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
+#ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
 ```
 
 ```{r}
@@ -152,7 +152,7 @@ print_slide_text(slide_texts$demographics$population_density_chart)
 <!-- ![](generated/plots/world-pop-age-sex.png) -->
 ```{r, output=TRUE}
 # saveRDS(pop_age_sex_plot, "generated/plots/age-sex-distribution.rds")
-ggplotly(readRDS("generated/plots/age-sex-distribution.rds"))
+#ggplotly(readRDS("generated/plots/age-sex-distribution.rds"))
 ```
 
 ```{r}
@@ -207,13 +207,12 @@ print_slide_text(slide_texts$demographics$relative_wealth)
 ### Economic Hotspots
 
 ```{r}
-economic_activity <- fuzzy_read(spatial_dir, "avg_rad_sum")
-
-add_economic_activity_layer <- create_layer_function(
-  data = economic_activity, yaml_key = "economic_activity",
-  labFormat = labelFormat(digits = 2))
-all_maps <- add_economic_activity_layer(all_maps)
-added_layers <- c(added_layers, layer_params[["economic_activity"]]$group_id)
+#economic_activity <- fuzzy_read(spatial_dir, "avg_rad_sum")
+#add_economic_activity_layer <- create_layer_function(
+  #data = economic_activity, yaml_key = "economic_activity",
+  #labFormat = labelFormat(digits = 2))
+#all_maps <- add_economic_activity_layer(all_maps)
+#added_layers <- c(added_layers, layer_params[["economic_activity"]]$group_id)
 ```
 
 ```{r}
@@ -248,11 +247,11 @@ print_slide_text(slide_texts$economic_activity$economic_change)
 ### Urban Extent and Change
 
 ```{r}
-wsf <- fuzzy_read(spatial_dir, "WSF.*4326")
-values(wsf)[values(wsf) == 0] <- NA
-add_wsf_layer <- create_layer_function(data = wsf, yaml_key = "wsf")
-all_maps <- add_wsf_layer(all_maps)
-added_layers <- c(added_layers, layer_params[["wsf"]]$group_id)
+# wsf <- fuzzy_read(spatial_dir, "WSF.*4326")
+# values(wsf)[values(wsf) == 0] <- NA
+# add_wsf_layer <- create_layer_function(data = wsf, yaml_key = "wsf")
+# all_maps <- add_wsf_layer(all_maps)
+# added_layers <- c(added_layers, layer_params[["wsf"]]$group_id)
 ```
 
 ```{r}
@@ -279,10 +278,10 @@ print_slide_text(slide_texts$built_form$builtup_density)
 ### Land Cover
 
 ```{r}
-land_cover <- fuzzy_read(spatial_dir, "landcover")
-add_land_cover_layer <- create_layer_function(data = land_cover, yaml_key = "land_cover")
-all_maps <- add_land_cover_layer(all_maps)
-added_layers <- c(added_layers, "land-cover")
+# land_cover <- fuzzy_read(spatial_dir, "landcover")
+# add_land_cover_layer <- create_layer_function(data = land_cover, yaml_key = "land_cover")
+# all_maps <- add_land_cover_layer(all_maps)
+# added_layers <- c(added_layers, "land-cover")
 ```
 
 ```{r}
@@ -379,16 +378,16 @@ print_slide_text(slide_texts$climate_conditions$air_quality)
 
 ```{r}
 #| include: false
-summer_lst_file <- fuzzy_read(spatial_dir, "Summer_LST", FUN = paste)
-summer_lst <- rast_as_vect(summer_lst_file, digits = 1)
-summer_lst_resample <- rast(summer_lst_file) %>%
-  aggregate(fact = 4, fun = "max") %>% # Is this the right function choice?
-  as.polygons(digits = 0)
-
-add_summer_lst_layer <- create_layer_function(data = summer_lst_resample, yaml_key = "summer_lst")
-
-all_maps <- add_summer_lst_layer(all_maps)
-added_layers <- c(added_layers, "summer-surface-temperature")
+# summer_lst_file <- fuzzy_read(spatial_dir, "Summer_LST", FUN = paste)
+# summer_lst <- rast_as_vect(summer_lst_file, digits = 1)
+# summer_lst_resample <- rast(summer_lst_file) %>%
+#   aggregate(fact = 4, fun = "max") %>% # Is this the right function choice?
+#   as.polygons(digits = 0)
+# 
+# add_summer_lst_layer <- create_layer_function(data = summer_lst_resample, yaml_key = "summer_lst")
+# 
+# all_maps <- add_summer_lst_layer(all_maps)
+# added_layers <- c(added_layers, "summer-surface-temperature")
 ```
 
 ```{r}
@@ -400,14 +399,14 @@ print_slide_text(slide_texts$climate_conditions$summer_lst)
 
 ```{r}
 #| include: false
-vegetation_file <- fuzzy_read(spatial_dir, "ndvi", paste)
-vegetation <- rast(vegetation_file) %>%
-  aggregate(fact = 10, fun = "mean") %>%
-  as.polygons(digits = 2, aggregate = T) # Is this larger with/without aggregate?
-add_vegetation_layer <- create_layer_function(data = vegetation, yaml_key = "vegetation")
-
-all_maps <- add_vegetation_layer(all_maps)
-added_layers <- c(added_layers, "vegetated-areas")
+# vegetation_file <- fuzzy_read(spatial_dir, "NDVI", paste)
+# vegetation <- rast(vegetation_file) %>%
+#   aggregate(fact = 10, fun = "mean") %>%
+#   as.polygons(digits = 2, aggregate = T) # Is this larger with/without aggregate?
+# add_vegetation_layer <- create_layer_function(data = vegetation, yaml_key = "vegetation")
+# 
+# all_maps <- add_vegetation_layer(all_maps)
+# added_layers <- c(added_layers, "vegetated-areas")
 ```
 
 ```{r}
@@ -418,16 +417,16 @@ print_slide_text(slide_texts$climate_conditions$vegetation)
 # Forests & Deforestation
 ```{r}
 #| include: false
-forest <- fuzzy_read(spatial_dir, "CurrentForest")
-forest <- forest[forest[[1]] == 1,] # Select only forest cells
-add_forest_layer <- create_layer_function(data = forest, yaml_key = "forest")
-all_maps <- add_forest_layer(all_maps)
-
-deforest <- fuzzy_read(spatial_dir, "LossYear")
-deforest[[1]] <- deforest[[1]] + 2000 # The file only shows the 1s and 10s column for the year
-add_deforest_layer <- create_layer_function(data = deforest, yaml_key = "deforest")
-all_maps <- add_deforest_layer(all_maps)
-added_layers <- c(added_layers, "forests-deforestation")
+# forest <- fuzzy_read(spatial_dir, "CurrentForest")
+# forest <- forest[forest[[1]] == 1,] # Select only forest cells
+# add_forest_layer <- create_layer_function(data = forest, yaml_key = "forest")
+# all_maps <- add_forest_layer(all_maps)
+# 
+# deforest <- fuzzy_read(spatial_dir, "LossYear")
+# deforest[[1]] <- deforest[[1]] + 2000 # The file only shows the 1s and 10s column for the year
+# add_deforest_layer <- create_layer_function(data = deforest, yaml_key = "deforest")
+# all_maps <- add_deforest_layer(all_maps)
+# added_layers <- c(added_layers, "forests-deforestation")
 ```
 
 ```{r}

@@ -1,0 +1,193 @@
+,time,lat,lon,Precipitation,Variable,SSP
+0,2040-01-01 12:00:00,22.0,91.0,0.009999999776482582,Anomaly of precipitation relative to 1995-2014,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,80.72000122070312,Maximum of 5-day cumulative precipitation,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,0.15000000596049767,R20mm heavy precipitation days,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,-0.27000001072883606,Anomaly of precipitation relative to 1995-2014,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,14.720000267028809,Precipitation,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,-0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,18.139999389648438,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,67.88999938964844,Maximum of 5-day cumulative precipitation,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,5.309999942779541,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,14.4399995803833,Precipitation,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,0.1000000014900926,R20mm heavy precipitation days,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,0.0,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,48.9900016784668,Maximum of 5-day cumulative precipitation,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,0.0,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,2.180000066757202,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,0.0,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,16.8700008392334,Precipitation,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,-13.739999771118164,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,-2.4200000762939453,Anomaly of precipitation relative to 1995-2014,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,0.1000000014900926,R20mm heavy precipitation days,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,12.489999771118164,Precipitation,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,64.91000366210938,Maximum of 5-day cumulative precipitation,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,1.9600000381469727,Anomaly of precipitation relative to 1995-2014,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,0.1000000014900926,R20mm heavy precipitation days,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,60.9900016784668,Maximum of 5-day cumulative precipitation,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,59.59000015258789,Maximum of 5-day cumulative precipitation,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,23.68000030517578,Precipitation,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,-3.5899999141693115,Anomaly of precipitation relative to 1995-2014,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,0.1000000014900926,R20mm heavy precipitation days,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,-0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,-4.440000057220459,Anomaly of precipitation relative to 1995-2014,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,0.0,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,-20.399999618530273,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,22.829999923706055,Precipitation,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,0.050000000745092595,R20mm heavy precipitation days,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,-21.799999237060547,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,0.0,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,70.44999694824219,Maximum of 5-day cumulative precipitation,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,30.40999984741211,Precipitation,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,0.1000000014900926,R20mm heavy precipitation days,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,-0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,78.05000305175781,Maximum of 5-day cumulative precipitation,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,2.630000114440918,Anomaly of precipitation relative to 1995-2014,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,-0.7300000190734863,Anomaly of precipitation relative to 1995-2014,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,3.799999952316284,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,33.77000045776367,Precipitation,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,11.399999618530273,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,0.050000000745092595,R20mm heavy precipitation days,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,0.9900000095367432,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,5.769999980926514,Anomaly of precipitation relative to 1995-2014,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,76.66999816894531,Precipitation,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,0.1000000014900926,R50mm very heavy precipitation days,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,0.5500000119208912,R20mm heavy precipitation days,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,0.050000000745092595,R50mm very heavy precipitation days,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,178.61000061035156,Maximum of 5-day cumulative precipitation,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,77.08000183105469,Precipitation,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,0.050000000745092595,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,11.470000267028809,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,168.1300048828125,Maximum of 5-day cumulative precipitation,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,6.179999828338623,Anomaly of precipitation relative to 1995-2014,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,0.5500000119208912,R20mm heavy precipitation days,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,0.46000000834465027,Anomaly of precipitation relative to 1995-2014,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,231.97000122070312,Precipitation,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,-0.1000000014900926,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,2.7000000476836923,R20mm heavy precipitation days,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,-46.4900016784668,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,0.050000000745092595,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,256.489990234375,Maximum of 5-day cumulative precipitation,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,-0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,304.6300048828125,Maximum of 5-day cumulative precipitation,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,2.75,R20mm heavy precipitation days,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,0.44999998807909725,R50mm very heavy precipitation days,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,1.649999976158142,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,0.4000000059604977,R50mm very heavy precipitation days,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,227.5800018310547,Precipitation,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,4.849999904632568,Anomaly of precipitation relative to 1995-2014,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,304.9599914550781,Maximum of 5-day cumulative precipitation,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,0.25,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,-4.170000076293945,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,49.65999984741211,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,419.82000732421875,Precipitation,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,5.349999904632592,R20mm heavy precipitation days,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,0.25,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,5.550000190734896,R20mm heavy precipitation days,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,251.1300048828125,Maximum of 5-day cumulative precipitation,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,38.650001525878906,Anomaly of precipitation relative to 1995-2014,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,0.8500000238418981,R50mm very heavy precipitation days,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,0.6000000238418981,R50mm very heavy precipitation days,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,393.239990234375,Precipitation,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,12.069999694824219,Anomaly of precipitation relative to 1995-2014,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,0.5,R50mm very heavy precipitation days,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,0.3000000119208912,R50mm very heavy precipitation days,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,0.20000000298019677,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,4.099999904632592,R20mm heavy precipitation days,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,259.3299865722656,Maximum of 5-day cumulative precipitation,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,13.029999732971191,Anomaly of precipitation relative to 1995-2014,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,-4.53000020980835,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,214.58999633789062,Maximum of 5-day cumulative precipitation,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,354.57000732421875,Precipitation,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,0.25,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,352.0299987792969,Precipitation,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,-49.27000045776367,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,-0.1000000014900926,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,4.449999809265092,R20mm heavy precipitation days,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,15.569999694824219,Anomaly of precipitation relative to 1995-2014,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,282.54998779296875,Precipitation,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,3.0,R20mm heavy precipitation days,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,226.58999633789062,Maximum of 5-day cumulative precipitation,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,0.3000000119208912,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,0.25,R50mm very heavy precipitation days,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,16.799999237060547,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,0.3000000119208912,R50mm very heavy precipitation days,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,0.050000000745092595,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,33.16999816894531,Anomaly of precipitation relative to 1995-2014,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,260.8900146484375,Maximum of 5-day cumulative precipitation,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,29.209999084472656,Anomaly of precipitation relative to 1995-2014,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,278.5899963378906,Precipitation,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,0.44999998807909725,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,51.099998474121094,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,3.1500000953673957,R20mm heavy precipitation days,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,242.8000030517578,Maximum of 5-day cumulative precipitation,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,0.25,R50mm very heavy precipitation days,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,159.0,Precipitation,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,1.7799999713897705,Anomaly of precipitation relative to 1995-2014,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,1.700000047683692,R20mm heavy precipitation days,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,0.050000000745092595,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,1.5,R20mm heavy precipitation days,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,0.3000000119208912,R50mm very heavy precipitation days,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,35.97999954223633,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,190.36000061035156,Maximum of 5-day cumulative precipitation,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,135.39999389648438,Precipitation,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,0.44999998807909725,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,-16.459999084472656,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,0.25,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,25.3799991607666,Anomaly of precipitation relative to 1995-2014,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,-0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,37.68000030517578,Precipitation,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,105.91999816894531,Maximum of 5-day cumulative precipitation,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,160.97000122070312,Maximum of 5-day cumulative precipitation,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,0.5,R20mm heavy precipitation days,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,-16.3700008392334,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,0.1000000014900926,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,-3.049999952316284,Anomaly of precipitation relative to 1995-2014,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,-0.050000000745092595,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,0.050000000745092595,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,0.1000000014900926,R50mm very heavy precipitation days,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,46.08000183105469,Precipitation,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,38.68000030517578,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,5.349999904632568,Anomaly of precipitation relative to 1995-2014,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,0.3499999940394907,R20mm heavy precipitation days,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,87.33000183105469,Maximum of 5-day cumulative precipitation,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,16.579999923706055,Precipitation,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,0.7699999809265137,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,-0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,-3.1700000762939453,Anomaly of precipitation relative to 1995-2014,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,0.0,R50mm very heavy precipitation days,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,0.15000000596049767,R20mm heavy precipitation days,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,15.960000038146973,Precipitation,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,-3.819999933242798,Anomaly of maximum of 5-day cumulative precipitation relative to 1995-2014,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,0.0,Anomaly of r50mm very heavy precipitation days relative to 1995-2014,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,-0.050000000745092595,Anomaly of r20mm heavy precipitation days relative to 1995-2014,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,-3.7899999618530273,Anomaly of precipitation relative to 1995-2014,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,0.15000000596049767,R20mm heavy precipitation days,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,91.91999816894531,Maximum of 5-day cumulative precipitation,SSP585

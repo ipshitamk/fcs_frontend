@@ -1,0 +1,16 @@
+---
+format: revealjs
+---
+
+
+```{r}
+# List of HTML file paths
+html_files <- c("plot_1.html", "plot_2.html")
+```
+
+```{r}
+# Loop through HTML files and display each one
+for (file in html_files) {
+  cat(paste0('<iframe src="', file, '" width="100%" height="600px"></iframe>\n'))
+}
+```

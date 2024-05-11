@@ -1,0 +1,6 @@
+element_type,osmid,addr:postcode,amenity,name:en,operator,phone,geometry,name,ward5wknn,index,points,rank,value
+node,5222604021,4212,school,Alok Coaching Centre,Irfan and Arif,+8801517165021,POINT (91.8449815 22.3917383),,3,6,north east,7,1.5
+node,11482200038,,school,,,,POINT (91.8434119 22.4011222),"Progati Nursing College Chattogram, Nursing school, Oxygen - Kuwaish Rd, Chattogram",3,6,north east,7,1.5
+node,11482210786,,school,,,,POINT (91.8576496 22.4056796),"Frobel Academy, School, Bangabandhu Avenue, Oxygen-Quaish Adjacent Road, Chattogram",3,6,north east,7,1.5
+node,11484530839,,school,,,,POINT (91.868529 22.4022754),"A K Gilani Multimedia School, Dewan Mohosin Rd, Chattogram",3,6,north east,7,1.5
+node,11484548418,,school,,,,POINT (91.8690524 22.4002433),"West Mohra Government Primary School, Kaptai Rd, Chattogram",3,6,north east,7,1.5

@@ -205,6 +205,21 @@ h3 {
   }
 }
 
+.maps1 {
+  grid-column: 2 / 3;
+  grid-row: 3 / 5;
+  position: sticky;
+  top: $topbar-height;
+  height: 100vh;
+
+  img,
+  .leaflet.html-widget {
+    // height: 100vh !important;
+  }
+}
+
+
+
 // // For learning scrollama; delete once understood & proven
 // .maps #scrollama-test {
 //   background: coral;

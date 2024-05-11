@@ -1,0 +1,169 @@
+,time,lat,lon,Temperature,Variable,SSP
+0,2040-01-01 12:00:00,22.0,91.0,0.9100000262260437,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,2.1500000953673957,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,0.0,Hi35 heat index 35 degc and higher,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,0.0,Hi35 heat index 35 degc and higher,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,5.0,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,0.9700000286102295,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,22.780000686645508,Near-surface air temperature,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,26.15999984741211,Daily maximum near-surface air temperature,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,21.979999542236328,Near-surface air temperature,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,1.3700000047683716,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,25.760000228881836,Daily maximum near-surface air temperature,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,1.7100000381469727,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+0,2040-01-01 12:00:00,22.0,91.0,3.349999904632593,Tr tropical nights,SSP245
+0,2040-01-01 12:00:00,22.0,91.0,6.199999809265092,Tr tropical nights,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,23.8799991607666,Near-surface air temperature,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,27.649999618530273,Daily maximum near-surface air temperature,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,1.649999976158142,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,10.75,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,17.100000381469698,Tr tropical nights,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,0.0,Hi35 heat index 35 degc and higher,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,5.300000190734896,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,11.64999961853029,Tr tropical nights,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,1.2699999809265137,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,0.0,Hi35 heat index 35 degc and higher,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,24.290000915527344,Near-surface air temperature,SSP585
+1,2040-02-01 12:00:00,22.0,91.0,1.2400000095367432,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,0.9800000190734863,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+1,2040-02-01 12:00:00,22.0,91.0,27.940000534057617,Daily maximum near-surface air temperature,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,0.6000000238418981,Hi35 heat index 35 degc and higher,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,29.799999237060497,Tr tropical nights,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,2.0,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,1.1100000143051147,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,2.599999904632593,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,1.159999966621399,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,30.06999969482422,Daily maximum near-surface air temperature,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,29.200000762939492,Tr tropical nights,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,26.450000762939453,Near-surface air temperature,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,1.409999966621399,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,1.1499999761580904,Hi35 heat index 35 degc and higher,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,1.0700000524520874,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+2,2040-03-01 12:00:00,22.0,91.0,26.790000915527344,Near-surface air temperature,SSP585
+2,2040-03-01 12:00:00,22.0,91.0,30.020000457763672,Daily maximum near-surface air temperature,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,31.969999313354492,Daily maximum near-surface air temperature,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,30.0,Tr tropical nights,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,32.38999938964844,Daily maximum near-surface air temperature,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,1.5700000524520874,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,1.1399999856948853,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,1.4900000095367432,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,28.65999984741211,Near-surface air temperature,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,30.0,Tr tropical nights,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,29.09000015258789,Near-surface air temperature,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,14.5,Hi35 heat index 35 degc and higher,SSP245
+3,2040-04-01 12:00:00,22.0,91.0,19.049999237060497,Hi35 heat index 35 degc and higher,SSP585
+3,2040-04-01 12:00:00,22.0,91.0,1.0700000524520874,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,30.219999313354492,Near-surface air temperature,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,0.7799999713897705,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,1.3899999856948853,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,32.27000045776367,Daily maximum near-surface air temperature,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,31.0,Tr tropical nights,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,0.949999988079071,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,30.549999237060497,Hi35 heat index 35 degc and higher,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,30.700000762939492,Hi35 heat index 35 degc and higher,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,1.2999999523162842,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,29.780000686645508,Near-surface air temperature,SSP245
+4,2040-05-01 12:00:00,22.0,91.0,31.0,Tr tropical nights,SSP585
+4,2040-05-01 12:00:00,22.0,91.0,32.790000915527344,Daily maximum near-surface air temperature,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,30.3799991607666,Near-surface air temperature,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,32.29999923706055,Daily maximum near-surface air temperature,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,1.1100000143051147,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,0.800000011920929,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,30.0,Hi35 heat index 35 degc and higher,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+5,2040-06-01 12:00:00,22.0,91.0,30.0,Tr tropical nights,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,0.6299999952316284,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,0.7599999904632568,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,30.030000686645508,Near-surface air temperature,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,30.0,Hi35 heat index 35 degc and higher,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,32.130001068115234,Daily maximum near-surface air temperature,SSP245
+5,2040-06-01 12:00:00,22.0,91.0,30.0,Tr tropical nights,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,1.1399999856948853,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,29.06999969482422,Near-surface air temperature,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,0.800000011920929,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,1.1100000143051147,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,29.40999984741211,Near-surface air temperature,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,31.18000030517578,Daily maximum near-surface air temperature,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,31.3799991607666,Daily maximum near-surface air temperature,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,31.0,Hi35 heat index 35 degc and higher,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,1.309999942779541,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,31.0,Tr tropical nights,SSP245
+6,2040-07-01 12:00:00,22.0,91.0,31.0,Tr tropical nights,SSP585
+6,2040-07-01 12:00:00,22.0,91.0,31.0,Hi35 heat index 35 degc and higher,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,31.0,Tr tropical nights,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,0.9200000166893005,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,30.950000762939492,Hi35 heat index 35 degc and higher,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,31.0,Hi35 heat index 35 degc and higher,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,29.239999771118164,Near-surface air temperature,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,1.3300000429153442,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,31.0,Tr tropical nights,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,28.889999389648438,Near-surface air temperature,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,31.15999984741211,Daily maximum near-surface air temperature,SSP585
+7,2040-08-01 12:00:00,22.0,91.0,0.8799999952316284,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,30.75,Daily maximum near-surface air temperature,SSP245
+7,2040-08-01 12:00:00,22.0,91.0,1.2300000190734863,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,29.489999771118164,Near-surface air temperature,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,30.0,Tr tropical nights,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,30.0,Tr tropical nights,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,31.110000610351562,Daily maximum near-surface air temperature,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,30.90999984741211,Daily maximum near-surface air temperature,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,1.0099999904632568,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,1.600000023841858,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,1.1200000047683716,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,29.010000228881836,Near-surface air temperature,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,29.549999237060497,Hi35 heat index 35 degc and higher,SSP245
+8,2040-09-01 12:00:00,22.0,91.0,29.799999237060497,Hi35 heat index 35 degc and higher,SSP585
+8,2040-09-01 12:00:00,22.0,91.0,1.2100000381469727,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,31.0,Tr tropical nights,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,1.059999942779541,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,28.81999969482422,Near-surface air temperature,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,0.8299999833106995,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,31.079999923706055,Daily maximum near-surface air temperature,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,17.049999237060497,Hi35 heat index 35 degc and higher,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,31.0,Tr tropical nights,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,0.0,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,15.89999961853029,Hi35 heat index 35 degc and higher,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,30.739999771118164,Daily maximum near-surface air temperature,SSP245
+9,2040-10-01 12:00:00,22.0,91.0,1.440000057220459,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,1.1699999570846558,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+9,2040-10-01 12:00:00,22.0,91.0,28.440000534057617,Near-surface air temperature,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,1.2599999904632568,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,28.399999618530288,Tr tropical nights,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,29.450000762939492,Tr tropical nights,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,1.7999999523162842,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,26.040000915527344,Near-surface air temperature,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,26.6200008392334,Near-surface air temperature,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,0.5,Hi35 heat index 35 degc and higher,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,1.7200000286102295,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,0.5500000119208912,Hi35 heat index 35 degc and higher,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,29.1200008392334,Daily maximum near-surface air temperature,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,4.949999809265092,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+10,2040-11-01 12:00:00,22.0,91.0,3.9000000953673957,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,1.2200000286102295,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+10,2040-11-01 12:00:00,22.0,91.0,29.579999923706055,Daily maximum near-surface air temperature,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,26.84000015258789,Daily maximum near-surface air temperature,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,10.1000003814697,Tr tropical nights,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,0.0,Hi35 heat index 35 degc and higher,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,11.199999809265092,Anomaly of tr tropical nights relative to 1995-2014,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,1.5199999809265137,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,1.75,Anomaly of near-surface air temperature relative to 1995-2014,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,26.420000076293945,Daily maximum near-surface air temperature,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,23.010000228881836,Near-surface air temperature,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,0.0,Hi35 heat index 35 degc and higher,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,6.099999904632592,Anomaly of tr tropical nights relative to 1995-2014,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,1.100000023841858,Anomaly of daily maximum near-surface air temperature relative to 1995-2014,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,1.100000023841858,Anomaly of near-surface air temperature relative to 1995-2014,SSP245
+11,2040-12-01 12:00:00,22.0,91.0,23.65999984741211,Near-surface air temperature,SSP585
+11,2040-12-01 12:00:00,22.0,91.0,15.199999809265092,Tr tropical nights,SSP585

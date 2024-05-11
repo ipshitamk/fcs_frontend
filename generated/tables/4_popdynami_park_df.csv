@@ -1,0 +1,4 @@
+element_type,osmid,leisure,name,geometry,nodes,ward5wknn,index,points,rank,value
+node,11215117343,park,"Niribili Nirupoma Farms and Natural Park, Chittagong Coastal Rd, Chattogram",POINT (91.7598113 22.3562065),,4,7,south west,4,1.9500000000000002
+node,11215125154,park,"Nijhum Park & Tourism, Chittagong Coastal Rd, Chattogram",POINT (91.7589605 22.3521921),,4,7,south west,4,1.9500000000000002
+way,654164524,park,"Niribili Nirupoma Farms and Natural Park, Chittagong Coastal Rd, Chattogram","POLYGON ((91.7595861 22.3563041, 91.7596684 22.356303, 91.7596664 22.3561758, 91.7595841 22.356177, 91.7595861 22.3563041))","[6130100150, 6130100147, 6130100148, 6130100149, 6130100150]",4,7,south west,4,1.9500000000000002
