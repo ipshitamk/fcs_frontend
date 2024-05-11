@@ -26,7 +26,7 @@ $topbar-height: 2rem;
 .page-columns main.content {
   grid-column: screen-start-inset / screen-end-inset;
   display: grid;
-  grid-template-columns: 2fr 4fr;
+  grid-template-columns: 2.4fr 3.6fr;
   grid-template-rows: 2em auto auto auto;
   grid-column-gap: 2ch;
   align-items: start;
@@ -122,7 +122,7 @@ $topbar-height: 2rem;
   // To highlight the chain of selected items
   li:focus-within,
   li:hover {
-    background: lightblue;
+    background: pink;
   }
 
   // But I don't want to highlight the whole table of contents
@@ -257,8 +257,8 @@ h3 {
 h1 {
     font-size: 3rem;
     font-weight: 600;
-    color: #1e90ff;
-    background-image: radial-gradient(dodgerblue 1px, transparent 0);
+    color: darkred;
+    background-image: radial-gradient(darkred 1px, transparent 0);
     background-size: 10px 10px;
     height: 10rem;
     padding: calc(100vh - 10rem) 1.5rem 10rem 1.5rem;
@@ -278,8 +278,8 @@ h1 {
 
   h2 {
     font-size: 2rem;
-    color: dodgerblue;
-    background-image: radial-gradient(dodgerblue 1px, transparent 0);
+    color: darkred;
+    background-image: radial-gradient(darkred 1px, transparent 0);
     background-size: 10px 10px;
     padding: 30vh 1.5rem 0.5rem 1.5rem;
     margin-left: -1.5rem;

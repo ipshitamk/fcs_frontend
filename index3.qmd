@@ -44,7 +44,6 @@ basemap_opacity <- 0.3
 legend_opacity <- 0.8
 vwidth <- 900
 vheight <- vwidth
-# Static map
 layer_alpha <- 0.8
 map_width <- 6.9
 map_height <- 5.9
@@ -59,7 +58,7 @@ title: "`r paste(city, country, sep = ', ')` Future City Scan"
 
 ```{r}
 # Get text
-city_text <- read_md(paste0(user_input_dir, "text-files/manual-text.md"))
+city_text <- read_md(file.path(user_input_dir, "text-files/manual-text.md"))
 generic_text <- read_yaml("source/generic-text.yml")
 slide_texts <- merge_lists(city_text, generic_text)
 ```
@@ -83,7 +82,6 @@ ssp5 <-plot_basemap("vector")
 year_2020 <-plot_basemap("vector")
 year_2050 <-plot_basemap("vector")
 year_2100 <-plot_basemap("vector")
-## Static:
 zoom <- round(14.6 + -0.00015 * units::drop_units(sqrt(st_area(aoi))))
 tiles <- annotation_map_tile(type = "cartolight", zoom = zoom)
 
@@ -209,7 +207,6 @@ dropdownWrapper <- tagList(
 )
 
 dropdownWrapper
-
 ```
 
 ```{r}
@@ -252,7 +249,26 @@ print_slide_text(slide_texts$setting_the_context$basic_city_info)
 <!-- print_slide_text(slide_texts$setting_the_context$infrastructure_and_service_delivery) -->
 
 <!-- ``` -->
+## Service Delivery
+::: {.callout-caution collapse="true"}
+## Learn more about Housing and Urban Development
+Do we need to add this for FCS?
+:::
 
+::: {.callout-caution collapse="true"}
+## Learn more about Water Supply and Hygiene
+Do we need to add this for FCS?
+:::
+
+::: {.callout-caution collapse="true"}
+## Learn more about Governance
+Do we need to add this for FCS?
+:::
+
+::: {.callout-caution collapse="true"}
+## Learn more about Disaster Management and Recovery
+Do we need to add this for FCS?
+:::
 ## Population and Demographic Trends
 
 ### Population Growth
@@ -265,7 +281,7 @@ popdynamics <- read.csv("generated/popdynamics.csv")
 names(popdynamics) <- sapply(str_remove_all(colnames(popdynamics), "X"), "[")
 m <- as.matrix(popdynamics[, -1])
 rownames(m) <- popdynamics[['Scenario']]
-plot_ly(z = t(m), colorscale = "Viridis") %>%
+plot_ly(z = t(m), colorscale = "YlOrRd") %>%
   add_heatmap(x = colnames(m), y = rownames(m)) %>%
   layout(
     xaxis = list(title = "Year"),
@@ -414,7 +430,7 @@ gdp <-read.csv("generated/gdp.csv")
 names(gdp)<-sapply(str_remove_all(colnames(gdp),"X"),"[")
 g <- as.matrix(gdp[, -1])
 rownames(g) <- gdp[['Scenario']]
-plot_ly(z = t(g), colorscale = "Viridis") %>%
+plot_ly(z = t(g), colorscale = "YlOrRd") %>%
   add_heatmap(x = colnames(g), y = rownames(g)) %>%
   layout(
     title = "GDP",
@@ -466,7 +482,8 @@ values(gdp)[values(gdp) == 0] <-NA
 #gdp <- as.polygons(gdp, digits=4)
 add_gdp_layer <- create_layer_function(data = gdp, yaml_key = "gdp",group_id="gdp-ssp2_2050",title="GDP")
 all_maps <- add_gdp_layer(all_maps)
-#ssp2_2050 <- add_gdp_layer(ssp2_2050)
+ssp2 <- add_gdp_layer(ssp2)
+year_2050 <-add_gdp_layer(year_2050)
 #   # This could be put into the add_*_layer() functions themselves
 #   # hideGroup("population-density")
 gdp_layers <- c(gdp_layers, "gdp-ssp2_2050")
@@ -481,14 +498,13 @@ print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_SSP2_2050)
 
 ```{r}
 #| include: false
- gdp1 <- fuzzy_read(spatial_dir, "gdp_SSP2_2100",rast)
+gdp1 <- fuzzy_read(spatial_dir, "gdp_SSP2_2100",rast)
 values(gdp1)[values(gdp1) == 0] <-NA
- add_gdp1_layer <- create_layer_function(data = gdp1, yaml_key = "gdp",group_id="gdp-ssp2_2100",title="GDP")
- all_maps <- add_gdp1_layer(all_maps)
- #ssp2_2100 <-add_gdp1_layer(ssp2_2100)
-#   # This could be put into the add_*_layer() functions themselves
-#   # hideGroup("population-density")
- gdp_layers <- c(gdp_layers, "gdp-ssp2_2100")
+add_gdp1_layer <- create_layer_function(data = gdp1, yaml_key = "gdp",group_id="gdp-ssp2_2100",title="GDP")
+all_maps <- add_gdp1_layer(all_maps)
+ssp2<-add_gdp1_layer(ssp2)
+year_2100<-add_gdp1_layer(year_2100)
+gdp_layers <- c(gdp_layers, "gdp-ssp2_2100")
 ```
 
 ```{r}
@@ -502,12 +518,11 @@ print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_SSP2_2100)
 #| include: false
 gdp2 <- fuzzy_read(spatial_dir, "gdp_SSP5_2050",rast)
 values(gdp2)[values(gdp2) == 0] <-NA
- add_gdp2_layer <- create_layer_function(data = gdp2, yaml_key = "gdp",group_id="gdp-ssp5_2050",title="GDP")
- all_maps <- add_gdp2_layer(all_maps)
-#ssp5_2050 <-add_gdp2_layer(ssp5_2050)
-#   # This could be put into the add_*_layer() functions themselves
-#   # hideGroup("population-density")
- gdp_layers <- c(gdp_layers, "gdp-ssp5_2050")
+add_gdp2_layer <- create_layer_function(data = gdp2, yaml_key = "gdp",group_id="gdp-ssp5_2050",title="GDP")
+all_maps <- add_gdp2_layer(all_maps)
+ssp5 <-add_gdp2_layer(ssp5)
+year_2050<-add_gdp2_layer(year_2050)
+gdp_layers <- c(gdp_layers, "gdp-ssp5_2050")
 ```
 
 ```{r}
@@ -523,7 +538,8 @@ print_slide_text(slide_texts$FCS_gross_domestic_product$gdp_SSP5_2050)
 values(gdp3)[values(gdp3) == 0] <-NA
  add_gdp3_layer <- create_layer_function(data = gdp3, yaml_key = "gdp",group_id="gdp-ssp5_2100",title="GDP")
  all_maps <- add_gdp3_layer(all_maps)
- #ssp5_2100 <-add_gdp3_layer(ssp5_2100)
+ssp5 <-add_gdp3_layer(ssp5)
+year_2100 <-add_gdp3_layer(year_2100)
  gdp_layers <- c(gdp_layers, "gdp-ssp5_2100")
 ```
 
@@ -574,9 +590,8 @@ print_slide_text(slide_texts$FCS_ahe$ahe_growth)
 ```{r}
 #| include: false
 ahe <- fuzzy_read(spatial_dir, "AHE_ssp3_2050",rast)
-values(ahe)[values(ahe) == 0] <-NA
- add_ahe_layer <- create_layer_function(data = ahe, yaml_key = "ahe",group_id="heat-flux-ssp3_2050",title="Heat Flux")
- all_maps <- add_ahe_layer(all_maps)
+add_ahe_layer <- create_layer_function(data = ahe, yaml_key = "ahe",group_id="heat-flux-ssp3_2050",title="Heat Flux")
+all_maps <- add_ahe_layer(all_maps)
 #   # This could be put into the add_*_layer() functions themselves
 #   # hideGroup("population-density")
  ahe_layers <- c(ahe_layers, "heat-flux-ssp3_2050")
@@ -598,7 +613,7 @@ ul_graph <-read.csv("generated/urbanland.csv")
 names(ul_graph)<-sapply(str_remove_all(colnames(ul_graph),"X"),"[")
 u <- as.matrix(ul_graph[, -1])
 rownames(u) <- ul_graph[['Scenario']]
-plot_ly(z = t(u), colorscale = "Viridis") %>%
+plot_ly(z = t(u), colorscale = "YlOrRd") %>%
   add_heatmap(x = colnames(u), y = rownames(u)) %>%
   layout(
     xaxis = list(title = "Year"),
@@ -772,7 +787,7 @@ plots_temp <- visualize_temperature(temp_graph,city, save_path="generated/temper
   }
 
   #prevButton {
-    left: 150px;
+    left: 400px;
     transform: translateY(-50%);
   }
 
@@ -820,6 +835,7 @@ plots_temp <- visualize_temperature(temp_graph,city, save_path="generated/temper
   }
 </script>
 ```
+
 ```{r}
 #| output: asis
 print_slide_text(slide_texts$FCS_climate$temp_graph)
@@ -897,6 +913,7 @@ plots_precip <- visualize_precipitation(precip_graph,city, save_path ="generated
   }
 </script>
 ```
+
 ```{r}
 #| output: asis
 print_slide_text(slide_texts$FCS_climate$precip_graph)
@@ -977,18 +994,42 @@ print_slide_text(slide_texts$FCS_uhi$uhi_SSP5_night)
 ```
 
 ## Floods
+### Infrastructure
+```{r}
+#| include: false
+health_points <- fuzzy_read(spatial_dir, "health$", FUN = vect)
+school_points <- fuzzy_read(spatial_dir, "education$", FUN = vect) 
+police_points <- fuzzy_read(spatial_dir, "police$", FUN = vect) 
+road_lines <-fuzzy_read(spatial_dir, "roads_flood_SSP2_2050_1in100$", FUN = rast) 
+values(road_lines)[values(road_lines) == 0] <-NA 
+add_health_points_layer <- create_layer_function(data = health_points, yaml_key = "infrastructure-health",group_id="infrastructure")
+add_school_points_layer <- create_layer_function(data = school_points, yaml_key = "infrastructure-school",group_id="infrastructure")
+add_police_points_layer <- create_layer_function(data = police_points, yaml_key = "infrastructure-police",group_id="infrastructure")
+add_roads_layer <-create_layer_function(data = road_lines, yaml_key = "infrastructure-roads",group_id="infrastructure")
+all_maps <-add_health_points_layer(all_maps)%>% add_school_points_layer()%>% add_police_points_layer()%>% add_school_points_layer()%>% add_roads_layer()
+pu_layers <- c(pu_layers, "infrastructure")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$infrastructure)
+```
 
 ### Pluvial Flooding 2020
 
 ```{r}
 #| include: false
+health_points <- fuzzy_read(spatial_dir, "health$", FUN = vect) 
 pluvial_low_2020 <- fuzzy_read(spatial_dir, "pluvial_2020_lt1", rast)
 pluvial_med_2020 <- fuzzy_read(spatial_dir, "pluvial_2020_1-10", rast) * 10
 pluvial_high_2020 <- fuzzy_read(spatial_dir, "pluvial_2020_gt10", rast) * 11
 
 # Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2020, pluvial_med_2020, na.rm = T)
 add_pluvial_layer <- create_layer_function(data = pluvial_low_2020, yaml_key = "pluvial",group_id="pluvial-flooding-2020")
-all_maps <- add_pluvial_layer(all_maps)
+add_health_points_layer <- create_layer_function(data = health_points, yaml_key = "infrastructure-health",group_id="infrastructure")
+all_maps <-  add_health_points_layer(all_maps)
+all_maps <-add_pluvial_layer(all_maps)
 pu_layers <- c(pu_layers, "pluvial-flooding-2020")
 ```
 
@@ -1006,6 +1047,7 @@ pluvial_med_2050 <- fuzzy_read(spatial_dir, "pluvial_2050_ssp2_1-10", rast) * 10
 pluvial_high_2050 <- fuzzy_read(spatial_dir, "pluvial_2050_ssp2_gt10", rast) * 11
 
 # Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2050, pluvial_med_2050, na.rm = T)
 add_pluvial1_layer <- create_layer_function(data = pluvial_low_2050, yaml_key = "pluvial",group_id="pluvial-flooding-ssp2-2050")
 all_maps <- add_pluvial1_layer(all_maps)
 pu_layers <- c(pu_layers, "pluvial-flooding-ssp2-2050")
@@ -1025,6 +1067,7 @@ pluvial_med_2080 <- fuzzy_read(spatial_dir, "pluvial_2080_ssp2_1-10", rast) * 10
 pluvial_high_2080 <- fuzzy_read(spatial_dir, "pluvial_2080_ssp2_gt10", rast) * 11
 
 # Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2080, pluvial_med_2080, na.rm = T)
 add_pluvial2_layer <- create_layer_function(data = pluvial_low_2080, yaml_key = "pluvial",group_id="pluvial-flooding-ssp2-2080")
 all_maps <- add_pluvial2_layer(all_maps) 
 pu_layers <- c(pu_layers, "pluvial-flooding-ssp2-2080")
@@ -1035,6 +1078,76 @@ pu_layers <- c(pu_layers, "pluvial-flooding-ssp2-2080")
 print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2080)
 ```
 
+### Pluvial Flooding SSP5 2050
+
+```{r}
+#| include: false
+pluvial_med_2050 <- fuzzy_read(spatial_dir, "pluvial_2050_ssp5_1-10", rast) * 10
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2050, pluvial_med_2050, na.rm = T)
+add_pluvial4_layer <- create_layer_function(data = pluvial_med_2050, yaml_key = "pluvial",group_id="pluvial-flooding-ssp5-2050")
+all_maps <- add_pluvial4_layer(all_maps)
+pu_layers <- c(pu_layers, "pluvial-flooding-ssp5-2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
+```
+
+### Pluvial Flooding SSP5 2080
+
+```{r}
+#| include: false
+pluvial_med_2080 <- fuzzy_read(spatial_dir, "pluvial_2080_ssp5_1-10", rast) * 10
+
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2080, pluvial_med_2080, na.rm = T)
+add_pluvial5_layer <- create_layer_function(data = pluvial_med_2080, yaml_key = "pluvial",group_id="pluvial-flooding-ssp5-2080")
+all_maps <- add_pluvial5_layer(all_maps) 
+pu_layers <- c(pu_layers, "pluvial-flooding-ssp5-2080")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
+```
+
+### Fluvial Flooding SSP5 2080
+
+```{r}
+#| include: false
+fluvial_med_2080 <- fuzzy_read(spatial_dir, "fluvial_2080_ssp5_1-10", rast) * 10
+
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2080, pluvial_med_2080, na.rm = T)
+add_fluvial_layer <- create_layer_function(data = fluvial_med_2080, yaml_key = "fluvial",group_id="fluvial-flooding-ssp5-2080")
+all_maps <- add_fluvial_layer(all_maps) 
+fu_layers <- c(fu_layers, "fluvial-flooding-ssp5-2080")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
+```
+
+### Coastal Flooding 
+
+```{r}
+#| include: false
+coastal_med_2020 <- fuzzy_read(spatial_dir, "coastal_2020_1-10", rast) * 10
+
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2080, pluvial_med_2080, na.rm = T)
+add_coastal_layer <- create_layer_function(data = coastal_med_2020, yaml_key = "coastal",group_id="coastal-flooding")
+all_maps <- add_coastal_layer(all_maps) 
+pu_layers <- c(pu_layers, "coastal-flooding")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_2020)
+```
 ### Water scarcity
 
 ```{r, output=TRUE}
@@ -1045,7 +1158,7 @@ names(water)<-sapply(str_remove_all(colnames(water),"X"),"[")
 w <- as.matrix(water[, -1])
 rownames(w) <- water[['Scenario']]
 w_char <- format(w, digits = 2, nsmall = 2)
-plot_ly(z = w,colorscale = "Viridis") %>%
+plot_ly(z = w,colorscale = "YlOrRd") %>%
   add_heatmap(x = colnames(w), y = rownames(w),text = w_char,
               hoverinfo = "text") %>%
   layout(
@@ -1082,7 +1195,7 @@ print_slide_text(slide_texts$FCS_cyclones$cyclones_chart)
 ```
 
 ```{r}
-added_layers <-c(pop_layers, gdp_layers,ul_layers,ahe_layers,uhi_layers,pu_layers)
+added_layers <-c(pop_layers, gdp_layers,ul_layers,ahe_layers,uhi_layers,pu_layers,fu_layers)
 ```
 
 ### Feedback
@@ -1099,11 +1212,9 @@ viewof ul3 = Inputs.textarea({placeholder: "What are the key takeaways from this
 ```{r}
 #| output: true
 all_maps %>%
-  add_aoi() %>% 
+  add_aoi() %>%
   addLayersControl(
     overlayGroups = added_layers,
     options = layersControlOptions(collapsed = FALSE))
-  # If I want to use javascript directly I could use htmlwidgets::onRender(),
-  # or maybe just an observable cell
 ```
 :::

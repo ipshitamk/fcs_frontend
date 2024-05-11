@@ -19,16 +19,9 @@ template:
   domain: NULL
   labFormat: NULL
   suffix: NULL
+  crop: crop domain to layer values - default of  
   # resolution or resolution_factor
 # SECTION 3 DEMOGRAPHICS
-population:
-  fuzzy_string: population
-  title: 'Population density'
-  subtitle: 'Number of persons per 10,000 m^2'
-  palette: ['#8E3933', '#ECEB72']
-  basemap: 'satellite'
-  group_id: 'population-density'
-  bins: 5
 # SECTION 4 ECONOMIC ACTIVITY
 rwi:
   fuzzy_string: relative_wealth
@@ -95,13 +88,6 @@ schools:
   # How do I indicate shading?
   suffix: ' m'
   group_id: access-to-schools
-school_points:
-  title: School
-  palette: ['black']
-  alpha: 1
-  labels: ['School']
-  factor: TRUE
-  group_id: access-to-schools
 health_facilities:
   title: Travel distance to nearest health facility
   subtitle: Distance along road network
@@ -109,13 +95,6 @@ health_facilities:
   breaks: [1, 2, 3]
   # How do I indicate shading?
   suffix: ' km'
-  group_id: access-to-healthcare
-health_points:
-  title: Health Facility
-  palette: ['black']
-  alpha: 1
-  labels: ['Health facility']
-  factor: TRUE
   group_id: access-to-healthcare
 # SECTION 6 CLIMATE CONDITIONS
 solar:
@@ -163,12 +142,6 @@ deforest: # Requires preprocessing to combine forest and deforestation?
   palette: ['#EEEC00', '#D73837']
   group_id: 'forests-deforestation'
 # SECTION 7 RISK IDENTIFICATION
-fluvial: # This will require pre-processing
-  palette: '#446589'
-  labels: ['0.1–1%', '1–10%', '>10%']
-  alphas: [.25, .5, .75] 
-  title: 'Fluvial flood probability'
-  subtitle: 'Probability of a flood event within a 3-arc-second area in a given year'
 flooding_combined: # This will require pre-processing
   palette: '#446589'
   labels: ['0.1–1%', '1–10%', '>10%']
@@ -210,10 +183,40 @@ road_network_criticality:
   suffix: "%"
   group_id: road-network-criticality
 # SECTION 8 LOCAL INSTITUTIONS AND PLANNING
+#Follow landslides for breaks 
+#Health
+infrastructure-health:
+  palette: ['black']
+  alpha: 1
+  factor: TRUE
+  labels: ['Health Facility']
+  title: Health Facility
+  group_id: infrastructure
+infrastructure-school:
+  palette: ['yellow']
+  alpha: 1
+  factor: TRUE
+  labels: ['Schools']
+  title: Schools
+  group_id: infrastructure
+infrastructure-police:
+  palette: ['red']
+  alpha: 1
+  factor: TRUE
+  labels: ['Police Stations']
+  title: Police
+  group_id: infrastructure
+
+infrastructure-roads:
+  palette: ['#009E7A','#70C5AD' , '#FFFFBA', '#FF9169', '#ED431B']
+  labels: ['Major Roads']
+  title: Roads
+  group_id: infrastructure
+
 # SECTION 9 POPULATION DYNAMICS
 pop:
  subtitle: 'Number of persons per 1 km^2'
- palette: ['#ED431B', '#FF9169', '#FFFFBA', '#70C5AD', '#009E7A']
+ palette: ['#009E7A','#70C5AD' , '#FFFFBA', '#FF9169', '#ED431B']
  bins: 5
  basemap: 'satellite'
  title: 'Population Density'
@@ -239,10 +242,9 @@ pop_all:
 # SECTION 10 GDP
 gdp:
  subtitle: 'Change of GDP per 1km^2 from 2025'
- palette: ['transparent','#cbd394', '#78921d', '#6f8817', '#7d9722']
+ palette: ['transparent','#cbd394', '#78921d','#7d9722', '#6f8817','#097969']
  bins: 5
  basemap: 'satellite'
- title: 'GDP'
 GDP_SSP2_2050:
   title: 'GDP SSP2_2050'
   group_id: "gdp-ssp2_2050"
@@ -269,7 +271,6 @@ ul:
  palette: ['#FBF9CD', '#E3B854', '#BF4A3B', '#25110B']
  bins: 5
  basemap: 'satellite'
- title: 'Urban Land'
 Urban Land_SSP2_2050:
   title: 'Urban Land SSP2_2050'
   group_id: "urban-land-ssp2_2050"
@@ -288,11 +289,12 @@ Urban Land_SSP5_2100:
 
 # SECTION 12 Heatflux
 ahe:
+  subtitle: 'Change of anthropogenic heat flux per X'
   title: 'Heat Flux'
   group_id: 'heat-flux-ssp3_2050'
-  palette: ['#5290C2', '#F0EE80', '#D33837']
+  palette: ['#404040', '#bababa', '#FFFFFF', '#f4a582', '#ca0020']
+  center: 0
   bins: 0
-
 # SECTION 13 Urban Heat Island
 uhi:
  subtitle: 'Urban Heat Island per 1km^2'
@@ -316,11 +318,38 @@ pluvial: # This will require pre-processing
   palette: '#446589'
   labels: ['0.1–1%', '1–10%', '>10%']
   alphas: [.25, .5, .75] 
-  title: 'Pluvial flood probability'
+  title: 'Probability of Pluvial Flooding'
   subtitle: 'Probability of a flood event within a 3-arc-second area in a given year'
 Pluvial 2020: 
   title: 'Pluvial Flooding in 2020'
   group_id: "pluvial-flooding-ssp2-2020"
-Pluvial 2050: 
+Pluvial SSP2 2050: 
   title: 'Pluvial Flooding in 2050'
   group_id: "pluvial-flooding-ssp2-2050"
+Pluvial SSP2 2080: 
+  title: 'Pluvial Flooding in 2080'
+  group_id: "pluvial-flooding-ssp2-2080"
+Pluvial SSP5 2050: 
+  title: 'Pluvial Flooding in 2050'
+  group_id: "pluvial-flooding-ssp5-2050"
+Pluvial SSP5 2080: 
+  title: 'Pluvial Flooding in 2080'
+  group_id: "pluvial-flooding-ssp5-2080"
+# SECTION 15 Fluvial Flooding
+fluvial: # This will require pre-processing
+  palette: '#446589'
+  labels: ['0.1–1%', '1–10%', '>10%']
+  alphas: [.25, .5, .75] 
+  title: 'Fluvial flood probability'
+  subtitle: 'Probability of a flood event within a 3-arc-second area in a given year'
+Fluvial SSP5 2080: 
+  title: 'Fluvial Flooding in 2080'
+  group_id: "fluvial-flooding-ssp5-2080"
+# SECTION 15 Coastal Flooding
+coastal: # This will require pre-processing
+  palette: '#446589'
+  labels: ['0.1–1%', '1–10%', '>10%']
+  alphas: [.25, .5, .75] 
+  title: 'Coastal flood probability'
+  subtitle: 'Probability of a flood event within a 3-arc-second area in a given year'
+  group_id: "coastal-flooding"

@@ -4,23 +4,23 @@ library(sf)
 library(leaflet)
 library(yaml)
 library(stringr)
-library(mapview)
+# library(mapview)
 library(dplyr)
 library(plotly)
-library(reshape2)
-library(htmltools)
-library(htmlwidgets)
 library(ggspatial)
 library(tidyterra)
 library(cowplot)
 library(glue)
+library(reshape2)
+library(htmltools)
+library(htmlwidgets)
 
 # Map Functions ----
 # Function for reading rasters with fuzzy names
 # Ideally, though, we would name in a consistent way where this is rendered unnecessary
 fuzzy_read <- function(spatial_dir, fuzzy_string, FUN = rast_as_vect, path = T, ...) {
   file <- list.files(spatial_dir) %>% subset(str_detect(., fuzzy_string)) #%>%
-    #str_extract("^[^\\.]*") %>% unique()
+  #str_extract("^[^\\.]*") %>% unique()
   if (length(file) > 1) warning(paste("Too many", fuzzy_string, "files in", spatial_dir))
   if (length(file) < 1) warning(paste("No", fuzzy_string, "file in", spatial_dir))
   if (length(file) == 1) {
@@ -61,6 +61,7 @@ rast_as_vect <- function(x, digits = 8, ...) {
   out <- as.polygons(x, digits = digits)
   return(out)
 }
+
 # round_up_breaklist <- function(breaklist, tonum = 10) {
 #   last <- -1000
 #   raw = 0
@@ -75,27 +76,28 @@ rast_as_vect <- function(x, digits = 8, ...) {
 # Functions for making the maps
 plot_basemap <- function(basemap_style = "vector") {
   basemap <-leaflet(
-      data = aoi,
-      # Need to probably do this with javascript
-      height = "calc(100vh - 2rem)",
-      width = "100%",
-      options = leafletOptions(zoomControl = F, zoomSnap = 0.1)) %>% 
+    data = aoi,
+    # Need to probably do this with javascript
+    height = "calc(100vh - 2rem)",
+    width = "100%",
+    options = leafletOptions(zoomControl = F, zoomSnap = 0.1)) %>% 
     fitBounds(lng1 = unname(aoi_bounds$xmin - (aoi_bounds$xmax - aoi_bounds$xmin)/20),
               lat1 = unname(aoi_bounds$ymin - (aoi_bounds$ymax - aoi_bounds$ymin)/20),
               lng2 = unname(aoi_bounds$xmax + (aoi_bounds$xmax - aoi_bounds$xmin)/20),
               lat2 = unname(aoi_bounds$ymax + (aoi_bounds$ymax - aoi_bounds$ymin)/20))
-
-    { if (basemap_style == "satellite") { 
-      basemap <- basemap %>% addProviderTiles(., providers$Esri.WorldImagery,
-                       options = providerTileOptions(opacity = basemap_opacity))
-    } else if (basemap_style == "vector") {
-      # addProviderTiles(., providers$Wikimedia,
-      basemap <- basemap %>% addProviderTiles(providers$CartoDB.Positron)
-                       # addProviderTiles(., providers$Stadia.AlidadeSmooth,
-                      #  options = providerTileOptions(opacity = basemap_opacity))
-    } }
+  
+  { if (basemap_style == "satellite") { 
+    basemap <- basemap %>% addProviderTiles(., providers$Esri.WorldImagery,
+                                            options = providerTileOptions(opacity = basemap_opacity))
+  } else if (basemap_style == "vector") {
+    # addProviderTiles(., providers$Wikimedia,
+    basemap <- basemap %>% addProviderTiles(providers$CartoDB.Positron)
+    # addProviderTiles(., providers$Stadia.AlidadeSmooth,
+    #  options = providerTileOptions(opacity = basemap_opacity))
+  } }
   return(basemap)
 }
+
 prepare_parameters <- function(yaml_key, ...) {
   # Override the layers.yaml parameters with arguments provided to ...
   # Parameters include bins, breaks, center, color_scale, domain, labFormat, and palette
@@ -111,11 +113,11 @@ prepare_parameters <- function(yaml_key, ...) {
     params$bins <- if(is.null(params$breaks)) 0 else length(params$breaks)
     # params$bins <- if(is.null(params$breaks)) 0 else NULL
   }
-   if (is.null(params$labFormat)) params$labFormat <- labelFormat()
+  # if (is.null(params$labFormat)) params$labFormat <- labelFormat()
   if (is.null(params$stroke)) params$stroke <- NA
- if (!is.null(params$factor) && params$factor) {
-    params$labFormat <- function(type, levels) {return(params$labels)}
-   }
+  # if (!is.null(params$factor) && params$factor) {
+  #   params$labFormat <- function(type, levels) {return(params$labels)}
+  # }
   
   # Apply layer transparency to palette
   params$palette <- sapply(params$palette, \(p) {
@@ -134,6 +136,7 @@ prepare_parameters <- function(yaml_key, ...) {
   
   return(params)
 }
+
 create_layer_function <- function(data, yaml_key = NULL, params = NULL, color_scale = NULL, message = F, fuzzy_string = NULL, ...) {  
   if (message) message("Check if data is in EPSG:3857; if not, raster is being re-projected")
   
@@ -175,136 +178,162 @@ create_layer_function <- function(data, yaml_key = NULL, params = NULL, color_sc
       factor = params$factor,
       levels = levels(layer_values))
   }
+  
+  # I have moved the formerly-present note on lessons from the CRC Workshop code to my `Week of 2023-11-26` note in Obsidian.
+  
+  ### !!! I need to pull labels out because not always numeric so can't be signif
+  
   layer_function <- function(maps, show = T) {
-      if (class(data)[1] %in% c("SpatRaster", "RasterLayer")) {
+    if (class(data)[1] %in% c("SpatRaster", "RasterLayer")) {
       # RASTER
-        maps <- maps %>% 
-          addRasterImage(data, opacity = 1,
-            colors = color_scale,
-            # For now the group needs to match the section id in the text-column
-            # group = params$title %>% str_replace_all("\\s", "-") %>% tolower(),
-            group = params$group_id)
-      } else if (class(data)[1] %in% c("SpatVector", "sf")) {
+      maps <- maps %>% 
+        addRasterImage(data, opacity = 1,
+                       colors = color_scale,
+                       # For now the group needs to match the section id in the text-column
+                       # group = params$title %>% str_replace_all("\\s", "-") %>% tolower(),
+                       group = params$group_id)
+    } else if (class(data)[1] %in% c("SpatVector", "sf")) {
       # VECTOR
+      if ( # Add circle markers if geometry type is "points"
+        (class(data)[1] == "SpatVector" && geomtype(data) == "points") |
+        (class(data)[1] == "sf" && "POINTS" %in% st_geometry_type(data))) {
+        maps <- maps %>%
+          addCircles(
+            data = data,
+            color = params$palette,
+            weight = params$weight,
+            # opacity = 0.9,
+            group = params$group_id,
+            # label = ~ signif(pull(data[[1]]), 6)) # Needs to at least be 4 
+            label = labels)
+      } else { # Otherwise, draw the geometries
         maps <- maps %>%
           addPolygons(
             data = data,
             fill = if(is.null(params$fill) || params$fill) T else F,
             fillColor = ~color_scale(layer_values),
             fillOpacity = 0.9,
-            stroke = if(!is.null(params$stroke) && params$stroke != F) T else F,
-            color = if(!is.null(params$stroke) && params$stroke == T) ~color_scale(layer_values) else params$stroke,
+            stroke = if(!is.null(params$stroke) && !is.na(params$stroke) && params$stroke != F) T else F,
+            color = if(!is.null(params$stroke) && !is.na(params$stroke) && params$stroke == T) ~color_scale(layer_values) else params$stroke,
             weight = params$weight,
             opacity = 0.9,
             group = params$group_id,
             # label = ~ signif(pull(data[[1]]), 6)) # Needs to at least be 4 
             label = labels)
+      }} else {
+        stop("Data is not spatRaster, RasterLayer, spatVector or sf")
       }
-      # See here for formatting the legend: https://stackoverflow.com/a/35803245/5009249
-      maps <- maps %>%
-        addLegend(
-          # data = data,
-          position = 'bottomright',
-          pal = color_scale,
-          # colors = palette,
-          values = domain,
-          opacity = legend_opacity,
-          # bins = params$bins,
-          # bins = 3,  # legend color ramp does not render if there are too many bins
-          # labels = params_labels,
-          title = params$title,
-          labFormat = params$labFormat,
-          # labFormat = labelFormat(transform = function(x) label_maker(x = x, levels = params$breaks, labels = params$labels)),
-          # labFormat = function(type, breaks, labels) {
-          # }
-          # group = params$title %>% str_replace_all("\\s", "-") %>% tolower())
-          group = params$group_id)
-      # if (!show) maps <- hideGroup(maps, group = layer_id)
-      return(maps)
+    # See here for formatting the legend: https://stackoverflow.com/a/35803245/5009249
+    legend_args <- list(
+      map = maps,
+      # data = data,
+      position = 'bottomright',
+      values = domain,
+      # values = if (is.null(params$breaks)) domain else params$breaks,
+      # pal = if (is.null(params$labels) | is.null(params$breaks)) color_scale else NULL,
+      pal = if (diff(lengths(list(params$labels, params$breaks))) == 1) NULL else color_scale,
+      # colors = if (is.null(params$labels) | is.null(params$breaks)) NULL else if (diff(lengths(list(params$labels, params$breaks))) == 1) color_scale(head(params$breaks, -1)) else color_scale(params$breaks),
+      colors = if (diff(lengths(list(params$labels, params$breaks))) == 1) color_scale(head(params$breaks, -1)) else NULL,
+      opacity = legend_opacity,
+      # bins = params$bins,
+      # bins = 3,  # legend color ramp does not render if there are too many bins
+      labels = params$labels,
+      title = params$title,
+      # labFormat = params$labFormat,
+      # labFormat = labelFormat(transform = function(x) label_maker(x = x, levels = params$breaks, labels = params$labels)),
+      # labFormat = function(type, breaks, labels) {
+      # }
+      # group = params$title %>% str_replace_all("\\s", "-") %>% tolower())
+      group = params$group_id)
+    legend_args <- Filter(Negate(is.null), legend_args)
+    # Using do.call so I can conditionally include args (i.e., pal and colors)
+    maps <- do.call(addLegend, legend_args)
+    # if (!show) maps <- hideGroup(maps, group = layer_id)
+    return(maps)
   }
-
+  
   return(layer_function)
+}
+
+create_static_layer <- function(data, yaml_key = NULL, params = NULL, ...) {
+  if (is.null(params)) {
+    params <- prepare_parameters(yaml_key, ...)
   }
+  if (!is.null(params$factor) && params$factor) {
+    data <- 
+      set_layer_values(
+        data = data,
+        values = ordered(get_layer_values(data),
+                         levels = params$breaks,
+                         labels = params$labels))
+    params$palette <- setNames(params$palette, params$labels)
+  }
+  layer_values <- get_layer_values(data)
+  palette <- params$palette
   
-  create_static_layer <- function(data, yaml_key = NULL, params = NULL, ...) {
-    if (is.null(params)) {
-      params <- prepare_parameters(yaml_key, ...)
-    }
-    if (!is.null(params$factor) && params$factor) {
-      data <- 
-        set_layer_values(
-          data = data,
-          values = ordered(get_layer_values(data),
-                           levels = params$breaks,
-                           labels = params$labels))
-      params$palette <- setNames(params$palette, params$labels)
-    }
-    layer_values <- get_layer_values(data)
-    palette <- params$palette
-    
-    layer <-
-      if (class(data)[1] == "SpatVector") {
-        if (geomtype(data) == "points") {
-          geom_spatvector(data = data, color = palette, size = 1)
-        } else if (geomtype(data) == "polygons") {
-          geom_spatvector(data = data, aes(fill = layer_values), color = params$stroke)
-        }
-      } else if (class(data)[1] == "SpatRaster") {
-        geom_spatraster(data = data)
+  layer <-
+    if (class(data)[1] == "SpatVector") {
+      if (geomtype(data) == "points") {
+        geom_spatvector(data = data, color = palette, size = 1)
+      } else if (geomtype(data) == "polygons") {
+        geom_spatvector(data = data, aes(fill = layer_values), color = params$stroke)
       }
-    
-    title_broken <- str_replace_all(params$title, "(.{20}[^\\s]*)\\s", "\\1<br>")
-    subtitle_broken <- str_replace_all(params$subtitle, "(.{20}[^\\s]*)\\s", "\\1<br>")
-    title <- paste0(title_broken, "<br><br><em>", subtitle_broken, "</em>")
-    
-    if(params$bins > 0 && is.null(params$breaks)) {
-      params$breaks <- break_pretty2(
-        data = layer_values, n = params$bins + 1, FUN = signif,
-        method = params$breaks_method %>% {if(is.null(.)) "quantile" else .})
+    } else if (class(data)[1] == "SpatRaster") {
+      geom_spatraster(data = data)
     }
-    
-    # geometry_type <- c(tryCatch(st_geometry_type(data), error = \(e) NULL), tryCatch(geomtype(data),  error = \(e) NULL))
-    # if (str_detect(tolower(geometry_type), "point")) {
-    # fill_scale <- NULL
-    # } else {
-    fill_scale <-
-      if (!is.null(params$factor) && params$factor) {
-        scale_fill_manual(values = palette, na.value = "transparent", name = title)
-      } else if (params$bins == 0) {
-        scale_fill_gradientn(
-          colors = palette,
-          rescaler = if (!is.null(params$center)) ~ scales::rescale_mid(.x, mid = params$center) else scales::rescale,
-          na.value = "transparent",
-          name = title)
-        # }
-      } else if (params$bins > 0) {
-        scale_fill_stepsn(
-          colors = palette,
-          # Length of labels is one less than breaks when we want a discrete legend
-          breaks = if (is.null(params$breaks)) waiver() else if (diff(lengths(list(params$labels, params$breaks))) == 1) params$breaks[-1] else params$breaks,
-          values = if (is.null(params$breaks)) NULL else breaks_midpoints(params$breaks, rescaler = if (!is.null(params$center)) scales::rescale_mid else scales::rescale, mid = params$center),
-          labels = if (is.null(params$labels)) waiver() else params$labels,
-          limits = if (is.null(params$breaks)) NULL else range(params$breaks),
-          rescaler = if (!is.null(params$center)) ~ scales::rescale_mid(.x, mid = params$center) else scales::rescale,
-          na.value = "transparent",
-          oob = scales::oob_squish,
-          name = title,
-          guide = if (diff(lengths(list(params$labels, params$breaks))) == 1) "legend" else guide_colorsteps()
-        )
-        # }
-      } 
-    
-    legend_text_alignment <- if (
-      !is.null(params$labels) && is.character(params$labels)
-      | is.character(layer_values)) 0 else 1
-    
-    theme = theme(
-      legend.title = ggtext::element_markdown(),
-      legend.text.align = legend_text_alignment)
-    
-    return(list(layer = layer, scale = fill_scale, theme = theme))
+  
+  title_broken <- str_replace_all(params$title, "(.{20}[^\\s]*)\\s", "\\1<br>")
+  subtitle_broken <- str_replace_all(params$subtitle, "(.{20}[^\\s]*)\\s", "\\1<br>")
+  title <- paste0(title_broken, "<br><br><em>", subtitle_broken, "</em>")
+  
+  if(params$bins > 0 && is.null(params$breaks)) {
+    params$breaks <- break_pretty2(
+      data = layer_values, n = params$bins + 1, FUN = signif,
+      method = params$breaks_method %>% {if(is.null(.)) "quantile" else .})
   }
   
+  # geometry_type <- c(tryCatch(st_geometry_type(data), error = \(e) NULL), tryCatch(geomtype(data),  error = \(e) NULL))
+  # if (str_detect(tolower(geometry_type), "point")) {
+  # fill_scale <- NULL
+  # } else {
+  fill_scale <-
+    if (!is.null(params$factor) && params$factor) {
+      scale_fill_manual(values = palette, na.value = "transparent", name = title)
+    } else if (params$bins == 0) {
+      scale_fill_gradientn(
+        colors = palette,
+        rescaler = if (!is.null(params$center)) ~ scales::rescale_mid(.x, mid = params$center) else scales::rescale,
+        na.value = "transparent",
+        name = title)
+      # }
+    } else if (params$bins > 0) {
+      scale_fill_stepsn(
+        colors = palette,
+        # Length of labels is one less than breaks when we want a discrete legend
+        breaks = if (is.null(params$breaks)) waiver() else if (diff(lengths(list(params$labels, params$breaks))) == 1) params$breaks[-1] else params$breaks,
+        values = if (is.null(params$breaks)) NULL else breaks_midpoints(params$breaks, rescaler = if (!is.null(params$center)) scales::rescale_mid else scales::rescale, mid = params$center),
+        labels = if (is.null(params$labels)) waiver() else params$labels,
+        limits = if (is.null(params$breaks)) NULL else range(params$breaks),
+        rescaler = if (!is.null(params$center)) ~ scales::rescale_mid(.x, mid = params$center) else scales::rescale,
+        na.value = "transparent",
+        oob = scales::oob_squish,
+        name = title,
+        guide = if (diff(lengths(list(params$labels, params$breaks))) == 1) "legend" else guide_colorsteps()
+      )
+      # }
+    } 
+  
+  legend_text_alignment <- if (
+    !is.null(params$labels) && is.character(params$labels)
+    | is.character(layer_values)) 0 else 1
+  
+  theme = theme(
+    legend.title = ggtext::element_markdown(),
+    legend.text.align = legend_text_alignment)
+  
+  return(list(layer = layer, scale = fill_scale, theme = theme))
+}
+
 plot_static <- function(data, yaml_key, filename = NULL, baseplot = NULL, ...) {
   params <- prepare_parameters(yaml_key = yaml_key, ...)
   layer <- create_static_layer(data, params = params)
@@ -356,23 +385,23 @@ save_plot <- function(plot = NULL, filename, directory, rel_widths = c(3, 1)) {
 
 get_layer_values <- function(data) {
   if (class(data)[1] %in% c("SpatRaster")) {
-      values <- values(data)
-    } else if (class(data)[1] %in% c("SpatVector")) {
-      values <- pull(values(data))
-    } else if (class(data)[1] == "sf") {
-      values <- data$values
-    } else stop("Data is not of class SpatRaster, SpatVector or sf")
+    values <- values(data)
+  } else if (class(data)[1] %in% c("SpatVector")) {
+    values <- pull(values(data))
+  } else if (class(data)[1] == "sf") {
+    values <- data$values
+  } else stop("Data is not of class SpatRaster, SpatVector or sf")
   return(values)
 }
 
 set_layer_values <- function(data, values) {
   if (class(data)[1] %in% c("SpatRaster")) {
-      values(data) <- values
-    } else if (class(data)[1] %in% c("SpatVector")) {
-      values(data)[[1]] <- values
-    } else if (class(data)[1] == "sf") {
-      data$values <- values
-    } else stop("Data is not of class SpatRaster, SpatVector or sf")
+    values(data) <- values
+  } else if (class(data)[1] %in% c("SpatVector")) {
+    values(data)[[1]] <- values
+  } else if (class(data)[1] == "sf") {
+    data$values <- values
+  } else stop("Data is not of class SpatRaster, SpatVector or sf")
   return(data)
 }
 
@@ -395,31 +424,31 @@ set_domain <- function(values, domain = NULL, center = NULL, factor = NULL) {
 }
 
 create_color_scale <- function(domain, palette, center = NULL, bins = 5, reverse = F, breaks = NULL, factor = NULL, levels = NULL) {
+  # List of shared arguments
+  args <- list(
+    palette = palette,
+    domain = domain,
+    na.color = 'transparent',
+    alpha = T)
   # if (!is.null(breaks)) bins <- length(breaks)
   if (!is.null(factor) && factor) {
-      color_scale <- colorFactor(
-        palette = palette,
-        domain = domain,
-        levels = levels,
-        na.color = 'transparent',
-        ordered = TRUE
-      )
+    color_scale <- rlang::inject(colorFactor(
+      !!!args,
+      levels = levels,
+      ordered = TRUE))
   } else if (bins == 0) {
-    color_scale <- colorNumeric(
+    color_scale <- rlang::inject(colorNumeric(
       # Why did I find it necessary to use colorRamp previously? For setting "linear"?
-      #palette = colorRamp(palette, interpolate = "linear"),
-      palette = palette,
-      domain = domain,
-      na.color = 'transparent',
-      reverse = reverse) 
+      # palette = colorRamp(palette, interpolate = "linear"),
+      !!!args,
+      reverse = reverse)) 
   } else {
-    color_scale <- colorBin(
-      palette = palette,
-      domain = domain,
+    color_scale <- rlang::inject(colorBin(
+      !!!args,
       bins = if (!is.null(breaks)) breaks else bins,
       # Might want to turn pretty back on
       pretty = FALSE,
-      na.color = 'transparent', reverse = reverse)         
+      reverse = reverse))       
   }
   return(color_scale)
 }
@@ -429,11 +458,14 @@ label_maker <- function(x, levels = NULL, labels = NULL, suffix = NULL) {
   #   index <- sapply(x, \(.x) which(levels == .x)) # Using R's new lambda functions!
   #   x <- labels[index]
   # }
+  if (is.numeric(x)) {
+    x <- signif(x, 6)
+  }
   if (!is.null(suffix)) {
     x <- paste0(x, suffix)
   }
   return(x)
-  }
+}
 
 add_aoi <- function(map, data = aoi, color = 'black', weight = 3, fill = F, dashArray = '12', ...) {
   addPolygons(map, data = data, color = color, weight = weight, fill = fill, dashArray = dashArray, ...)
@@ -442,10 +474,17 @@ add_aoi <- function(map, data = aoi, color = 'black', weight = 3, fill = F, dash
 # Making the static map, given the dynamic map
 mapshot_styled <- function(map_dynamic, file_suffix, return) {
   mapview::mapshot(map_dynamic,
-          remove_controls = c('zoomControl'),
-          file = paste0(styled_maps_dir, city_string, '-', file_suffix, '.png'),
-          vheight = vheight, vwidth = vwidth, useragent = useragent)
+                   remove_controls = c('zoomControl'),
+                   file = paste0(styled_maps_dir, city_string, '-', file_suffix, '.png'),
+                   vheight = vheight, vwidth = vwidth, useragent = useragent)
   # return(map_static)
+}
+
+breaks_midpoints <- \(breaks, rescaler = scales::rescale, ...) {
+  scaled_breaks <- rescaler(breaks, ...)
+  midpoints <- head(scaled_breaks, -1) + diff(scaled_breaks)/2
+  midpoints[length(midpoints)] <- midpoints[length(midpoints)] + .Machine$double.eps
+  return(midpoints)
 }
 
 # Text Functions ----
@@ -454,18 +493,22 @@ read_md <- function(file) {
   instruction_lines <- 1:grep("CITY CONTENT BEGINS HERE", md)
   mddf <- tibble(text = md[-instruction_lines]) %>%
     mutate(
-      # Should maybe use a different header symbol than hashes so that the content itself can use hash
-      # section = case_when(str_detect(text, "^## ") ~ text, T ~ NA_character_),
-      # slide = case_when(str_detect(text, "^### ") ~ text, T ~ NA_character_),
       section = case_when(str_detect(text, "^//// ") ~ str_extract(text, "^/+ (.*)$", group = T), T ~ NA_character_),
       slide = case_when(str_detect(text, "^// ") ~ str_extract(text, "^/+ (.*)$", group = T), T ~ NA_character_),
-      .before = 1
-    ) %>% tidyr::fill(section, slide) %>%
-    filter(!str_detect(text, "^/") & !str_detect(text, "^----")) %>%
-    # Do I want to remove header lines? For now, yes
-    filter(!str_detect(text, "^#")) %>%
-    # filter(!str_detect(text, "^\\s*$")) %>%
-    filter(!is.na(slide))
+      .before = 1) %>%
+    tidyr::fill(section) %>% 
+    { lapply(na.omit(unique(.$section)), \(sect, df) {
+      df <- filter(df, section == sect) %>%
+        tidyr::fill(slide, .direction = "down") %>%
+        filter(!(slide != lead(slide) & text == "")) %>%
+        filter(!str_detect(text, "^/") & !str_detect(text, "^----"))
+      while (df$text[1] == "" & nrow(df) > 1) df <- df[-1,]
+      while (tail(df$text, 1) == "" & nrow(df) > 1) df <- head(df, -1)
+      return(df)
+    }, df = .) } %>%
+    bind_rows() #%>%
+  # Do I want to remove header lines? For now, no
+  # filter(!str_detect(text, "^#"))
   text_list <- sapply(unique(mddf$section), function(sect) {
     section_df <- filter(mddf, section == sect)
     section_list <- sapply(c(unique(section_df$slide)), function(s) {
@@ -530,31 +573,6 @@ print_slide_text <- function(slide) {
   if (!is.null(slide$footnote)) print_md(slide$footnote, div_class = "footnote")
 }
 
-# visualize_temperature <- function(temp_data, city) {
-#   # Change these colors
-#   my_colors <- c("blue", "red", "green", "orange", "purple", "pink", "yellow")
-#   
-#   # Create separate line plots for each SSP scenario
-#   plots_temp <- lapply(c("SSP245", "SSP585"), function(ssp) {
-#     temp_subset <- temp_data %>%
-#       filter(SSP == ssp)
-#     
-#     plot_ly(temp_subset, x = ~date, y = ~Temperature, color = ~Variable, linetype = ~Variable) %>%
-#       add_lines(showlegend = TRUE) %>%
-#       layout(title = paste("Temperature in", city, "for", ssp),
-#              xaxis = list(title = "Month", tickformat = "%b"),
-#              yaxis = list(title = "Temperature"),
-#              legend = list(orientation = "h", x = 0.5, y = -0.2)) %>%
-#       add_trace(linetype = ~Variable,
-#                 colors = my_colors[1:length(unique(temp_subset$Variable))])
-#   })
-#   
-#   # Combine plots into a single plot
-#   multiplot <- subplot(plots_temp, nrows = 2)
-#   
-#   # Show the plot
-#   multiplot
-# }
 aspect_buffer <- function(x, aspect_ratio, buffer_percent = 0) {
   bounds_proj <- st_transform(st_as_sfc(st_bbox(x)), crs = 
                                 "EPSG:3857")
