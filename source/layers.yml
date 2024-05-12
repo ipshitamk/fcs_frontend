@@ -353,3 +353,26 @@ coastal: # This will require pre-processing
   title: 'Coastal flood probability'
   subtitle: 'Probability of a flood event within a 3-arc-second area in a given year'
   group_id: "coastal-flooding"
+# SECTION 16 Combined Flooding
+comb: # This will require pre-processing
+  palette: '#446589'
+  labels: ['0.1–1%', '1–10%', '>10%']
+  alphas: [.25, .5, .75] 
+  title: 'Probability of Combined Flooding'
+  subtitle: 'Probability of a flood event within a 3-arc-second area in a given year'
+Combined Flooding 2020: 
+  title: 'Combined Flooding in 2020'
+  group_id: "combined-flooding-2020"
+Combined Flooding SSP2 2050: 
+  title: 'Combined Flooding in 2050'
+  group_id: "combined-flooding-ssp2-2050"
+Combined Flooding SSP2 2080: 
+  title: 'Combined Flooding in 2080'
+  group_id: "combined-flooding-ssp2-2080"
+Combined Flooding SSP5 2050: 
+  title: 'Combined Flooding in 2050'
+  group_id: "combined-flooding-ssp5-2050"
+Combined Flooding SSP5 2080: 
+  title: 'Combined Flooding in 2080'
+  group_id: "combined-flooding-ssp5-2080"
+  

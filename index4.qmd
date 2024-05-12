@@ -94,7 +94,6 @@ ahe_layers <-c()
 uhi_layers <-c()
 pu_layers <-c()
 fu_layers <-c()
-comb_layers <-c()
 ```
 :::
 
@@ -1016,25 +1015,19 @@ pu_layers <- c(pu_layers, "infrastructure")
 print_slide_text(slide_texts$FCS_water$infrastructure)
 ```
 
-### Combined Flooding 2020
+### Pluvial Flooding 2020
 
 ```{r}
 #| include: false
-library(raster)
 sub_dir <- "fathom"
-comb_low_2020 <- fuzzy_read(spatial_dir, "comb_SSP1_2020_1in10.tif", rast)
-comb_med_2020 <- fuzzy_read(spatial_dir, "comb_SSP1_2020_1in100.tif", rast)
-comb_high_2020 <- fuzzy_read(spatial_dir, "comb_SSP1_2020_1in1000.tif", rast)
+
 # Interactive Plot (Leaflet)
-combined_2020 <- max(comb_low_2020, comb_med_2020, comb_high_2020, na.rm = TRUE)
-
-# Replace negative values with zero
-combined_2020_positive <- combined_2020
-combined_2020_positive[combined_2020_positive <= 0] <- NA
-
-add_comb_2020_layer <- create_layer_function(data = combined_2020_positive, yaml_key = "comb",group_id="combined-flooding-2020")
-all_maps <-add_comb_2020_layer(all_maps)
-comb_layers <- c(comb_layers, "combined-flooding-2020")
+#pluvial <- max(pluvial_low_2020, pluvial_med_2020, na.rm = T)
+add_pluvial_layer <- create_layer_function(data = pluvial_low_2020, yaml_key = "pluvial",group_id="pluvial-flooding-2020")
+add_health_points_layer <- create_layer_function(data = health_points, yaml_key = "infrastructure-health",group_id="infrastructure")
+all_maps <-  add_health_points_layer(all_maps)
+all_maps <-add_pluvial_layer(all_maps)
+pu_layers <- c(pu_layers, "pluvial-flooding-2020")
 ```
 
 ```{r}
@@ -1042,22 +1035,19 @@ comb_layers <- c(comb_layers, "combined-flooding-2020")
 print_slide_text(slide_texts$FCS_water$pluvial_flooding_2020)
 ```
 
-### Combined Flooding SSP2 2050
+### Pluvial Flooding SSP2 2050
 
 ```{r}
 #| include: false
-comb_low_2050 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2050_1in10.tif", rast)
-comb_med_2050 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2050_1in100.tif", rast) * 10
-comb_high_2050 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2050_1in1000.tif", rast) * 11
-# Interactive Plot (Leaflet)
-combined_2050 <- max(comb_low_2050, comb_med_2050, na.rm = T)
-# Replace negative values with zero
-combined_2050_positive <- combined_2050
-combined_2050_positive[combined_2050_positive <= 0] <- NA
+pluvial_low_2050 <- fuzzy_read(spatial_dir, "pluvial_2050_ssp2_lt1", rast)
+pluvial_med_2050 <- fuzzy_read(spatial_dir, "pluvial_2050_ssp2_1-10", rast) * 10
+pluvial_high_2050 <- fuzzy_read(spatial_dir, "pluvial_2050_ssp2_gt10", rast) * 11
 
-add_comb_2050_layer <- create_layer_function(data = combined_2050_positive, yaml_key = "comb",group_id="combined-flooding-ssp2-2050")
-all_maps <-add_comb_2050_layer(all_maps)
-comb_layers <- c(comb_layers, "combined-flooding-ssp2-2050")
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2050, pluvial_med_2050, na.rm = T)
+add_pluvial1_layer <- create_layer_function(data = pluvial_low_2050, yaml_key = "pluvial",group_id="pluvial-flooding-ssp2-2050")
+all_maps <- add_pluvial1_layer(all_maps)
+pu_layers <- c(pu_layers, "pluvial-flooding-ssp2-2050")
 ```
 
 ```{r}
@@ -1065,41 +1055,19 @@ comb_layers <- c(comb_layers, "combined-flooding-ssp2-2050")
 print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
 ```
 
-### Combined Flooding SSP5 2050
+### Pluvial Flooding SSP2 2080
 
 ```{r}
 #| include: false
-comb_low_2050 <- fuzzy_read(spatial_dir, "comb_flood_SSP5_2050_1in10.tif", rast)
-comb_med_2050 <- fuzzy_read(spatial_dir, "comb_flood_SSP5_2050_1in100.tif", rast) * 10
-comb_high_2050 <- fuzzy_read(spatial_dir, "comb_flood_SSP5_2050_1in1000.tif", rast) * 11
+pluvial_low_2080 <- fuzzy_read(spatial_dir, "pluvial_2080_ssp2_lt1", rast)
+pluvial_med_2080 <- fuzzy_read(spatial_dir, "pluvial_2080_ssp2_1-10", rast) * 10
+pluvial_high_2080 <- fuzzy_read(spatial_dir, "pluvial_2080_ssp2_gt10", rast) * 11
+
 # Interactive Plot (Leaflet)
-combined_2050_5 <- max(comb_low_2050, comb_med_2050, na.rm = T)
-# Replace negative values with zero
-combined_2050_5_positive <- combined_2050_5
-combined_2050_5_positive[combined_2050_5_positive <= 0] <- NA
-
-add_comb_ssp5_2050_layer <- create_layer_function(data = combined_2050_5_positive, yaml_key = "comb",group_id="combined-flooding-ssp5-2050")
-all_maps <-add_comb_ssp5_2050_layer(all_maps)
-comb_layers <- c(comb_layers, "combined-flooding-ssp5-2050")
-```
-
-```{r}
-#| output: asis
-print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
-```
-
-### Combined Flooding SSP2 2080
-
-```{r}
-#| include: false
-# comb_low_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in10.tif", rast)
-# comb_med_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in100.tif", rast) * 10
-# comb_high_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in1000.tif", rast) * 11
-# # Interactive Plot (Leaflet)
-# combined_2080 <- max(comb_low_2080, comb_med_2080, na.rm = T)
-# add_comb_2080_layer <- create_layer_function(data = combined_2080, yaml_key = "comb",group_id="combined-flooding-ssp2-2080")
-# all_maps <-add_comb_2080_layer(all_maps)
-# comb_layers <- c(comb_layers, "combined-flooding-ssp2-2080")
+#pluvial <- max(pluvial_low_2080, pluvial_med_2080, na.rm = T)
+add_pluvial2_layer <- create_layer_function(data = pluvial_low_2080, yaml_key = "pluvial",group_id="pluvial-flooding-ssp2-2080")
+all_maps <- add_pluvial2_layer(all_maps) 
+pu_layers <- c(pu_layers, "pluvial-flooding-ssp2-2080")
 ```
 
 ```{r}
@@ -1107,7 +1075,76 @@ print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
 print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2080)
 ```
 
+### Pluvial Flooding SSP5 2050
 
+```{r}
+#| include: false
+pluvial_med_2050 <- fuzzy_read(spatial_dir, "pluvial_2050_ssp5_1-10", rast) * 10
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2050, pluvial_med_2050, na.rm = T)
+add_pluvial4_layer <- create_layer_function(data = pluvial_med_2050, yaml_key = "pluvial",group_id="pluvial-flooding-ssp5-2050")
+all_maps <- add_pluvial4_layer(all_maps)
+pu_layers <- c(pu_layers, "pluvial-flooding-ssp5-2050")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
+```
+
+### Pluvial Flooding SSP5 2080
+
+```{r}
+#| include: false
+pluvial_med_2080 <- fuzzy_read(spatial_dir, "pluvial_2080_ssp5_1-10", rast) * 10
+
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2080, pluvial_med_2080, na.rm = T)
+add_pluvial5_layer <- create_layer_function(data = pluvial_med_2080, yaml_key = "pluvial",group_id="pluvial-flooding-ssp5-2080")
+all_maps <- add_pluvial5_layer(all_maps) 
+pu_layers <- c(pu_layers, "pluvial-flooding-ssp5-2080")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
+```
+
+### Fluvial Flooding SSP5 2080
+
+```{r}
+#| include: false
+fluvial_med_2080 <- fuzzy_read(spatial_dir, "fluvial_2080_ssp5_1-10", rast) * 10
+
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2080, pluvial_med_2080, na.rm = T)
+add_fluvial_layer <- create_layer_function(data = fluvial_med_2080, yaml_key = "fluvial",group_id="fluvial-flooding-ssp5-2080")
+all_maps <- add_fluvial_layer(all_maps) 
+fu_layers <- c(fu_layers, "fluvial-flooding-ssp5-2080")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
+```
+
+### Coastal Flooding 
+
+```{r}
+#| include: false
+coastal_med_2020 <- fuzzy_read(spatial_dir, "coastal_2020_1-10", rast) * 10
+
+# Interactive Plot (Leaflet)
+#pluvial <- max(pluvial_low_2080, pluvial_med_2080, na.rm = T)
+add_coastal_layer <- create_layer_function(data = coastal_med_2020, yaml_key = "coastal",group_id="coastal-flooding")
+all_maps <- add_coastal_layer(all_maps) 
+pu_layers <- c(pu_layers, "coastal-flooding")
+```
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_2020)
+```
 ### Water scarcity
 
 ```{r, output=TRUE}
@@ -1155,7 +1192,7 @@ print_slide_text(slide_texts$FCS_cyclones$cyclones_chart)
 ```
 
 ```{r}
-added_layers <-c(pop_layers, gdp_layers,ul_layers,ahe_layers,uhi_layers,pu_layers,fu_layers,comb_layers)
+added_layers <-c(pop_layers, gdp_layers,ul_layers,ahe_layers,uhi_layers,pu_layers,fu_layers)
 ```
 
 ### Feedback
