@@ -1037,6 +1037,46 @@ all_maps <-add_comb_2020_layer(all_maps)
 comb_layers <- c(comb_layers, "combined-flooding-2020")
 ```
 
+### Population Exposed 2020
+
+```{r}
+#| include: false
+pop_low_2020 <- fuzzy_read(spatial_dir, "exposure_of_Population_SSP1_2020_1in10.tif", rast)
+pop_med_2020 <- fuzzy_read(spatial_dir, "exposure_of_Population_SSP1_2020_1in100.tif", rast)
+
+# Interactive Plot (Leaflet)
+pop_2020 <- max(pop_low_2020, pop_med_2020,na.rm = TRUE)
+masked_pop_2020 <- mask(pop_2020, aoi)
+
+# # Replace negative values with zero
+# pop_2020_positive <- pop_2020
+# pop_2020_positive[pop_2020_positive <= 0] <- NA
+
+add_pop_2020_layer <- create_layer_function(data = masked_pop_2020, yaml_key = "pop_flood",group_id="population-exposed-2020")
+all_maps <-add_pop_2020_layer(all_maps)
+comb_layers <- c(comb_layers, "population-exposed-2020")
+```
+
+
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$pluvial_flooding_2020)
+```
+### Roads Exposed 2020
+```{r}
+#| include: false
+road_low_2020 <- fuzzy_read(spatial_dir, "rce_SSP1_2020_1in10", rast)
+values(road_low_2020)[values(road_low_2020) == 0] <-NA  
+# # Replace negative values with zero
+# pop_2020_positive <- pop_2020
+# pop_2020_positive[pop_2020_positive <= 0] <- NA
+
+add_road_2020_layer <- create_layer_function(data = road_low_2020, yaml_key = "roads-exposed",group_id="roads-exposed-2020")
+all_maps <-add_road_2020_layer(all_maps)
+comb_layers <- c(comb_layers, "roads-exposed-2020")
+```
+
+
 ```{r}
 #| output: asis
 print_slide_text(slide_texts$FCS_water$pluvial_flooding_2020)
@@ -1092,14 +1132,19 @@ print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
 
 ```{r}
 #| include: false
-# comb_low_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in10.tif", rast)
-# comb_med_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in100.tif", rast) * 10
-# comb_high_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in1000.tif", rast) * 11
-# # Interactive Plot (Leaflet)
-# combined_2080 <- max(comb_low_2080, comb_med_2080, na.rm = T)
-# add_comb_2080_layer <- create_layer_function(data = combined_2080, yaml_key = "comb",group_id="combined-flooding-ssp2-2080")
-# all_maps <-add_comb_2080_layer(all_maps)
-# comb_layers <- c(comb_layers, "combined-flooding-ssp2-2080")
+comb_low_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in10.tif", rast)
+comb_med_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in100.tif", rast) * 10
+comb_high_2080 <- fuzzy_read(spatial_dir, "comb_flood_SSP2_2080_1in1000.tif", rast) * 11
+# Interactive Plot (Leaflet)
+combined_2080 <- max(comb_low_2080, comb_med_2080, na.rm = T)
+# Replace negative values with zero
+combined_2080_positive <- combined_2080
+combined_2080_positive[combined_2080_positive <= 0] <- NA
+
+add_comb_2080_layer <- create_layer_function(data = combined_2080_positive, yaml_key = "comb",group_id="combined-flooding-ssp2-2080")
+all_maps <-add_comb_2080_layer(all_maps)
+comb_layers <- c(comb_layers, "combined-flooding-ssp2-2080")
+
 ```
 
 ```{r}

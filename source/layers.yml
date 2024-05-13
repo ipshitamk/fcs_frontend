@@ -208,10 +208,16 @@ infrastructure-police:
   group_id: infrastructure
 
 infrastructure-roads:
-  palette: ['#009E7A','#70C5AD' , '#FFFFBA', '#FF9169', '#ED431B']
+  palette: ['black']
   labels: ['Major Roads']
   title: Roads
   group_id: infrastructure
+
+roads-exposed:
+  palette: ['#B9C9F3','#A4BFE7','#8EA6D5','#798EC4','#6476B2']
+  labels: ['Major Roads']
+  title: Roads exposed in 2020
+  group_id: roads-exposed-2020
 
 # SECTION 9 POPULATION DYNAMICS
 pop:
@@ -315,7 +321,7 @@ Urban Heat_SSP5_Night:
 
 # SECTION 14 Pluvial Flooding
 pluvial: # This will require pre-processing
-  palette: '#446589'
+  palette: ['#70A0E9,#6795D6,#5E8BC2,#5580AF,#4D749C']
   labels: ['0.1–1%', '1–10%', '>10%']
   alphas: [.25, .5, .75] 
   title: 'Probability of Pluvial Flooding'
@@ -337,7 +343,7 @@ Pluvial SSP5 2080:
   group_id: "pluvial-flooding-ssp5-2080"
 # SECTION 15 Fluvial Flooding
 fluvial: # This will require pre-processing
-  palette: '#446589'
+  palette: ['#70A0E9,#6795D6,#5E8BC2,#5580AF,#4D749C']
   labels: ['0.1–1%', '1–10%', '>10%']
   alphas: [.25, .5, .75] 
   title: 'Fluvial flood probability'
@@ -347,7 +353,7 @@ Fluvial SSP5 2080:
   group_id: "fluvial-flooding-ssp5-2080"
 # SECTION 15 Coastal Flooding
 coastal: # This will require pre-processing
-  palette: '#446589'
+  palette: ['#70A0E9','#6795D6','#5E8BC2','#5580AF','#4D749C']
   labels: ['0.1–1%', '1–10%', '>10%']
   alphas: [.25, .5, .75] 
   title: 'Coastal flood probability'
@@ -355,7 +361,7 @@ coastal: # This will require pre-processing
   group_id: "coastal-flooding"
 # SECTION 16 Combined Flooding
 comb: # This will require pre-processing
-  palette: '#446589'
+  palette: ['#B9C9F3','#A4BFE7','#8EA6D5','#798EC4','#6476B2']
   labels: ['0.1–1%', '1–10%', '>10%']
   alphas: [.25, .5, .75] 
   title: 'Probability of Combined Flooding'
@@ -375,4 +381,24 @@ Combined Flooding SSP5 2050:
 Combined Flooding SSP5 2080: 
   title: 'Combined Flooding in 2080'
   group_id: "combined-flooding-ssp5-2080"
+#Population Exposed
+pop_flood:
+ subtitle: 'Number of persons at a risk of flooding'
+ palette: ['#B9C9F3','#A4BFE7','#8EA6D5','#798EC4','#6476B2']
+ basemap: 'satellite'
+ title: 'Population Density and flood exposure'
+population flood_2020:
+  group_id: "population-exposed-2020"
+
+population flood_SSP2_2100:
+  title: 'Population Density SSP2_2100'
+  group_id: "population-exposed-ssp2_2100"
+
+population flood_SSP5_2050:
+  title: 'Population Density SSP5_2050'
+  group_id: "population-exposed-ssp5_2050"
+
+population flood_SSP5_2100:
+  title: 'Population Density SSP5_2100'
+  group_id: "population-exposed-ssp5_2100"
   
