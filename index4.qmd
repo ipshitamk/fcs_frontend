@@ -83,7 +83,7 @@ year_2020 <-plot_basemap("vector")
 year_2050 <-plot_basemap("vector")
 year_2100 <-plot_basemap("vector")
 zoom <- round(14.6 + -0.00015 * units::drop_units(sqrt(st_area(aoi))))
-tiles <- annotation_map_tile(type = "cartolight", zoom = zoom)
+#tiles <- annotation_map_tile(type = "cartolight", zoom = zoom)
 
 # Keep track of added layers
 added_layers <- c()

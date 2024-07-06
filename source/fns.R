@@ -7,7 +7,6 @@ library(stringr)
 # library(mapview)
 library(dplyr)
 library(plotly)
-library(ggspatial)
 library(tidyterra)
 library(cowplot)
 library(glue)
@@ -748,3 +747,4 @@ visualize_cyclones <- function(output, country, city) {
           theme(plot.title = element_text(hjust = 0.5), legend.direction = "vertical") +
           guides(color = guide_legend(override.aes = list(shape = c(NA, NA)))))
   }
+

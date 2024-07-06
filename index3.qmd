@@ -83,7 +83,7 @@ year_2020 <-plot_basemap("vector")
 year_2050 <-plot_basemap("vector")
 year_2100 <-plot_basemap("vector")
 zoom <- round(14.6 + -0.00015 * units::drop_units(sqrt(st_area(aoi))))
-tiles <- annotation_map_tile(type = "cartolight", zoom = zoom)
+#tiles <- annotation_map_tile(type = "cartolight", zoom = zoom)
 
 # Keep track of added layers
 added_layers <- c()
@@ -252,22 +252,22 @@ print_slide_text(slide_texts$setting_the_context$basic_city_info)
 <!-- ``` -->
 ## Service Delivery
 ::: {.callout-caution collapse="true"}
-## Learn more about Housing and Urban Development
+## Housing and Urban Development
 Do we need to add this for FCS?
 :::
 
 ::: {.callout-caution collapse="true"}
-## Learn more about Water Supply and Hygiene
+## Water Supply and Hygiene
 Do we need to add this for FCS?
 :::
 
 ::: {.callout-caution collapse="true"}
-## Learn more about Governance
+## Governance
 Do we need to add this for FCS?
 :::
 
 ::: {.callout-caution collapse="true"}
-## Learn more about Disaster Management and Recovery
+## Disaster Management and Recovery
 Do we need to add this for FCS?
 :::
 ## Population and Demographic Trends
@@ -282,13 +282,12 @@ popdynamics <- read.csv("generated/popdynamics.csv")
 names(popdynamics) <- sapply(str_remove_all(colnames(popdynamics), "X"), "[")
 m <- as.matrix(popdynamics[, -1])
 rownames(m) <- popdynamics[['Scenario']]
-plot_ly(z = t(m), colorscale = "YlOrRd") %>%
+plot_ly(z = m, colorscale = "RdOrYl") %>%
   add_heatmap(x = colnames(m), y = rownames(m)) %>%
   layout(
     xaxis = list(title = "Year"),
     yaxis = list(title = "SSP")
   )
-
 ```
 
 ```{r}
@@ -431,7 +430,7 @@ gdp <-read.csv("generated/gdp.csv")
 names(gdp)<-sapply(str_remove_all(colnames(gdp),"X"),"[")
 g <- as.matrix(gdp[, -1])
 rownames(g) <- gdp[['Scenario']]
-plot_ly(z = t(g), colorscale = "YlOrRd") %>%
+plot_ly(z = g, colorscale = "RdOrYl") %>%
   add_heatmap(x = colnames(g), y = rownames(g)) %>%
   layout(
     title = "GDP",
@@ -562,23 +561,29 @@ ahe_graph <-read.csv("generated/heatflux.csv")
 names(ahe_graph)<-sapply(str_remove_all(colnames(ahe_graph),"X"),"[")
 h <- as.matrix(ahe_graph[, -1])
 rownames(h) <- ahe_graph[['Scenario']]
-plot_ahe <- plot_ly(x = colnames(h)) 
+custom_colors <- c("#FF0000","#FFFF00")
+plot_ahe <- plot_ly()
 
 for (i in 1:nrow(h)) {
   plot_ahe <- add_trace(plot_ahe, 
+                    x = colnames(h), 
                     y = h[i,], 
-                    type = 'scatter', 
-                    mode = 'lines',
-                    name = rownames(h)[i])
+                    type = 'bar',
+                    name = rownames(h)[i],
+                    marker = list(color = custom_colors[i], 
+                                      line = list(width = 1),  # Adjust bar border width if needed
+                                      width = 0.2))
 }
 
 plot_ahe <- layout(plot_ahe,
-               title = "Anthropogenic heatflux by SSP Scenario",
-               xaxis = list(title = "SSP Scenario"),
-               yaxis = list(title = "Heat Flux"))
+               title = "Anthropogenic Heat Flux by SSP Scenario",
+               xaxis = list(title = "Year"),
+               yaxis = list(title = "Heat Flux"),
+               barmode = 'group')  # Group bars by scenario
 
 # Show the plot
 plot_ahe
+
 ```
 
 ```{r}
@@ -591,6 +596,7 @@ print_slide_text(slide_texts$FCS_ahe$ahe_growth)
 ```{r}
 #| include: false
 ahe <- fuzzy_read(spatial_dir, "AHE_ssp3_2050",rast)
+ahe <- mask(ahe, aoi)
 add_ahe_layer <- create_layer_function(data = ahe, yaml_key = "ahe",group_id="heat-flux-ssp3_2050",title="Heat Flux")
 all_maps <- add_ahe_layer(all_maps)
 #   # This could be put into the add_*_layer() functions themselves
@@ -614,8 +620,16 @@ ul_graph <-read.csv("generated/urbanland.csv")
 names(ul_graph)<-sapply(str_remove_all(colnames(ul_graph),"X"),"[")
 u <- as.matrix(ul_graph[, -1])
 rownames(u) <- ul_graph[['Scenario']]
-plot_ly(z = t(u), colorscale = "YlOrRd") %>%
-  add_heatmap(x = colnames(u), y = rownames(u)) %>%
+years <- as.numeric(colnames(u))
+start_year <- 2020
+start_index <- which(years >= start_year)[1]
+
+# Subset the matrix to include data from 2020 onwards
+u_subset <- u[, start_index:length(years)]
+
+# Plot the heatmap
+plot_ly(z = u_subset, colorscale = "RdOrYl") %>%
+  add_heatmap(x = colnames(u_subset), y = rownames(u_subset)) %>%
   layout(
     xaxis = list(title = "Year"),
     yaxis = list(title = "Urban Land Growth")
@@ -929,28 +943,42 @@ print_slide_text(slide_texts$FCS_climate$precip_graph)
 ```{r, output=TRUE}
 # saveRDS(density_plot, "generated/plots/density.rds")
 #ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
-heat_graph <-read.csv("generated/urbanheatisland.csv")
-names(heat_graph)<-sapply(str_remove_all(colnames(heat_graph),"X"),"[")
+heat_graph <- read.csv("generated/urbanheatisland.csv")
+names(heat_graph) <- sapply(str_remove_all(colnames(heat_graph), "X"), "[")
 heat <- as.matrix(heat_graph[, -1])
 rownames(heat) <- heat_graph[['Scenario']]
-plot_uhi <- plot_ly(x = colnames(heat)) 
 
+
+custom_colors <- c("#FFFF00", "#FFA500", "#FF0000")  # Yellow, Orange, Red
+
+
+plot_uhi <- plot_ly()
+
+
+heat <- heat[rowSums(heat != 0, na.rm = TRUE) > 0, ]
+
+max_value <- max(heat)
+
+# Add traces for each scenario as bars
 for (i in 1:nrow(heat)) {
   plot_uhi <- add_trace(plot_uhi, 
-                    y = heat[i,], 
-                    type = 'scatter', 
-                    mode = 'lines',
-                    name = rownames(heat)[i])
+                        x = colnames(heat), 
+                        y = heat[i,], 
+                        type = 'bar',
+                        name = rownames(heat)[i],
+                        marker = list(color = custom_colors[i]))
 }
 
+# Layout adjustments
 plot_uhi <- layout(plot_uhi,
-               title = "Urban Heat Island by SSP Scenario",
-               xaxis = list(title = "Day and Night"),
-               yaxis = list(title = "Urban Heat Island increase"))
+                   title = "Urban Heat Island by SSP Scenario",
+                   xaxis = list(title = "Day and Night"),
+                   yaxis = list(title = "Urban Heat Island increase"),
+                   barmode = 'group',  # Group bars by scenario
+                   showlegend = TRUE)  # Show legend for scenario names
 
 # Show the plot
 plot_uhi
-
 ```
 
 ```{r}
@@ -1158,18 +1186,28 @@ print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2080)
 ```{r, output=TRUE}
 # saveRDS(density_plot, "generated/plots/density.rds")
 #ggplotly(readRDS("generated/plots/density.rds") + labs(y = "People per square kilometer"))
-water <-read.csv("generated/waterscarcity.csv")
-names(water)<-sapply(str_remove_all(colnames(water),"X"),"[")
+water <- read.csv("generated/waterscarcity.csv")
+names(water) <- sapply(str_remove_all(colnames(water), "X"), "[")
 w <- as.matrix(water[, -1])
 rownames(w) <- water[['Scenario']]
+
+# Remove first and last columns
+w <- w[, -c(1, ncol(w))]
+
+# Remove 'WSI_' prefix from column names
+colnames(w) <- sub("^WSI_", "", colnames(w))
+
 w_char <- format(w, digits = 2, nsmall = 2)
-plot_ly(z = w,colorscale = "YlOrRd") %>%
-  add_heatmap(x = colnames(w), y = rownames(w),text = w_char,
+
+# Create a Plotly plot
+plot_ly(z = w, colorscale = "RdOrYl") %>%
+  add_heatmap(x = colnames(w), y = rownames(w), text = w_char,
               hoverinfo = "text") %>%
   layout(
     title = "Water Scarcity",
     xaxis = list(title = "Month"),
-    yaxis = list(title = "Scenario")
+    yaxis = list(title = "Scenario"),
+    hoverlabel = list(font = list(color = "white"))  # Set hover text color
   )
 ```
 

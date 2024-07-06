@@ -222,7 +222,7 @@ roads-exposed:
 # SECTION 9 POPULATION DYNAMICS
 pop:
  subtitle: 'Number of persons per 1 km^2'
- palette: ['#009E7A','#70C5AD' , '#FFFFBA', '#FF9169', '#ED431B']
+ palette: ['#FDE725', '#5DC863', '#21918C', '#3B528B', '#440154']
  bins: 5
  basemap: 'satellite'
  title: 'Population Density'
@@ -296,9 +296,9 @@ Urban Land_SSP5_2100:
 # SECTION 12 Heatflux
 ahe:
   subtitle: 'Change of anthropogenic heat flux per X'
-  title: 'Heat Flux'
+  title: 'Heat Flux W/m2'
   group_id: 'heat-flux-ssp3_2050'
-  palette: ['#404040', '#bababa', '#FFFFFF', '#f4a582', '#ca0020']
+  palette: ['#FFFFCC', '#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C']
   center: 0
   bins: 0
 # SECTION 13 Urban Heat Island
