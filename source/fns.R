@@ -13,6 +13,10 @@ library(glue)
 library(reshape2)
 library(htmltools)
 library(htmlwidgets)
+library(readr)
+library(RColorBrewer)
+library(tidyr)
+library(dplyr)
 
 # Map Functions ----
 # Function for reading rasters with fuzzy names
@@ -748,3 +752,114 @@ visualize_cyclones <- function(output, country, city) {
           guides(color = guide_legend(override.aes = list(shape = c(NA, NA)))))
   }
 
+
+roads_exposed <- function(csv_path, year) {
+  flood_data <- read.csv(csv_path, stringsAsFactors = FALSE)
+
+  data_year <- flood_data[flood_data$Year == year, ]
+
+  if (nrow(data_year) == 0) {
+    message(paste("No data available for Year", year))
+    return(NULL)
+  }
+
+  selected_columns <- data_year[, c("Return.period", "SSP", 
+                                    "Percentage.of.road.flooded.more.than.15cm", 
+                                    "Percentage.of.road.flooded.more.than.50cm", 
+                                    "Percentage.of.road.flooded.more.than.85cm", 
+                                    "Percentage.of.road.flooded.more.than.120cm", 
+                                    "Percentage.of.road.flooded.more.than.155cm", 
+                                    "Percentage.of.road.flooded.more.than.190cm", 
+                                    "Percentage.of.road.flooded.more.than.225cm", 
+                                    "Percentage.of.road.flooded.more.than.260cm", 
+                                    "Percentage.of.road.flooded.more.than.295cm", 
+                                    "Percentage.of.road.flooded.more.than.330cm", 
+                                    "Percentage.of.road.flooded.more.than.365cm")]
+
+  long_data <- pivot_longer(selected_columns,
+                            cols = starts_with("Percentage.of.road.flooded"),
+                            names_to = "FloodDepthCategory",
+                            values_to = "Percentage")
+
+  long_data$FloodDepthCategory <- factor(long_data$FloodDepthCategory,
+                                         levels = c("Percentage.of.road.flooded.more.than.15cm", 
+                                                    "Percentage.of.road.flooded.more.than.50cm", 
+                                                    "Percentage.of.road.flooded.more.than.85cm", 
+                                                    "Percentage.of.road.flooded.more.than.120cm", 
+                                                    "Percentage.of.road.flooded.more.than.155cm", 
+                                                    "Percentage.of.road.flooded.more.than.190cm", 
+                                                    "Percentage.of.road.flooded.more.than.225cm", 
+                                                    "Percentage.of.road.flooded.more.than.260cm", 
+                                                    "Percentage.of.road.flooded.more.than.295cm", 
+                                                    "Percentage.of.road.flooded.more.than.330cm", 
+                                                    "Percentage.of.road.flooded.more.than.365cm"),
+                                         labels = c(">15cm", ">50cm", ">85cm", ">120cm", ">155cm", 
+                                                    ">190cm", ">225cm", ">260cm", ">295cm", 
+                                                    ">330cm", ">365cm"))
+  
+
+  ssps <- unique(long_data$SSP)
+
+  red_orange_yellow_palette <- rev(brewer.pal(11, "RdBu"))
+  
+  plotly_graphs <- list()
+  
+  for (ssp in ssps) {
+    ssp_data <- long_data[long_data$SSP == ssp, ]
+    
+    
+    ggplot_graph <- ggplot(ssp_data, aes(x = factor(Return.period), y = Percentage, fill = FloodDepthCategory)) +
+      geom_bar(stat = "identity", position = "dodge") +
+      scale_fill_manual(values = red_orange_yellow_palette) +
+      labs(title = paste("Percentage of Road Flooded by", ssp, "in", year),
+           x = "Return Period",
+           y = "Percentage",
+           fill = "Flood Depth Category") +
+      theme_minimal()
+    
+    plotly_graph <- ggplotly(ggplot_graph)
+    
+    plotly_graphs[[ssp]] <- plotly_graph
+  }
+  
+  return(plotly_graphs)
+}
+
+pop_exposed <- function(csv_path, year, pop_columns) {
+  # Read the CSV file using base R
+  pop_exposed <- read.csv(csv_path, stringsAsFactors = FALSE)
+  
+  # Filter data for the specific year
+  data_year <- pop_exposed[pop_exposed$year == year, ]
+  
+  # Select specified population columns
+  selected_columns <- data_year[, c("return_period", "ssp", pop_columns)]
+  
+  # Convert data from wide to long format for ggplot2
+  long_data <- tidyr::pivot_longer(selected_columns,
+                                   cols = starts_with("X"),
+                                   names_to = "RiskCategory",
+                                   values_to = "Population")
+  
+  # Ensure RiskCategory is a factor with correct labels
+  long_data$RiskCategory <- factor(long_data$RiskCategory,
+                                   levels = unique(long_data$RiskCategory),
+                                   labels = c("Low Risk", "Moderate Risk", "High Risk", "Very High Risk"))
+  
+  # Create the ggplot graph
+  ggplot_graph <- ggplot2::ggplot(long_data, aes(x = factor(return_period), y = Population, fill = RiskCategory)) +
+    geom_bar(stat = "identity", position = "dodge") +
+    facet_wrap(~ ssp) +
+    labs(title = paste("Population exposed to floods in", year),
+         x = "Return Period",
+         y = "Population",
+         fill = "Risk Category") +
+    scale_fill_brewer(palette = "RdYlBu") +  # Custom color scale
+    theme_minimal()
+  
+  # Convert ggplot to plotly
+  plotly_graph <- plotly::ggplotly(ggplot_graph, dynamicTicks = TRUE)  # Ensure dynamicTicks are enabled for better rendering
+  
+  # Return the plotly graph
+  return(plotly_graph)
+}

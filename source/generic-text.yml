@@ -283,25 +283,29 @@ FCS_water:
     footnote: Map data from OpenStreetMap and DLR, 2015.
   pluvial_flooding_2020:
     method: |
-      Pluvial, or surface water flooding, is caused when heavy rainfall creates a flood event independent of an overflowing water body. It can occur in any urban area — even higher elevation areas that lie above coastal and river floodplains.
-      The infrastructure assets shown here are provided by OpenStreetMap. There may be other roads, health facilities, schools, fire stations and police stations that are not cataloged by OpenStreetMap.
+      ​Many urban areas experience both fluvial and pluvial floods; places near rivers are preferred settlement areas, and a predominantly sealed urban surface prevents water infiltration, facilitating surface inundation. This problem is exacerbated in cities with insufficient or non-existent sewer systems.
     footnote: |
       Map data from OpenStreetMap and Fathom, “Flood Hazard: Global 3.0”. See Data Notes for more on the Fathom dataset.
-      OpenStreetMap data may not include all facilities.
+  pop_flooding_2020:
+    method: |
+      ​Many urban areas experience both fluvial and pluvial floods; places near rivers are preferred settlement areas, and a predominantly sealed urban surface prevents water infiltration, facilitating surface inundation. This problem is exacerbated in cities with insufficient or non-existent sewer systems.
+    footnote: |
+      Map data from OpenStreetMap and Fathom, “Flood Hazard: Global 3.0”. See Data Notes for more on the Fathom dataset.
+  road_flooding_2020:
+    method: |
+      Pluvial, or surface water flooding, is caused when heavy rainfall creates a flood event independent of an overflowing water body. It can occur in any urban area — even higher elevation areas that lie above coastal and river floodplains.
+    footnote: |
+      Map data from OpenStreetMap and Fathom, “Flood Hazard: Global 3.0”. See Data Notes for more on the Fathom dataset.
   pluvial_flooding_SSP2_2050:
     method: |
       Pluvial, or surface water flooding, is caused when heavy rainfall creates a flood event independent of an overflowing water body. It can occur in any urban area — even higher elevation areas that lie above coastal and river floodplains.
-      The infrastructure assets shown here are provided by OpenStreetMap. There may be other roads, health facilities, schools, fire stations and police stations that are not cataloged by OpenStreetMap.
     footnote: |
       Map data from OpenStreetMap and Fathom, “Flood Hazard: Global 3.0”. See Data Notes for more on the Fathom dataset.
-      OpenStreetMap data may not include all facilities.
   pluvial_flooding_SSP2_2080:
     method: |
       Pluvial, or surface water flooding, is caused when heavy rainfall creates a flood event independent of an overflowing water body. It can occur in any urban area — even higher elevation areas that lie above coastal and river floodplains.
-      The infrastructure assets shown here are provided by OpenStreetMap. There may be other roads, health facilities, schools, fire stations and police stations that are not cataloged by OpenStreetMap.
     footnote: |
       Map data from OpenStreetMap and Fathom, “Flood Hazard: Global 3.0”. See Data Notes for more on the Fathom dataset.
-      OpenStreetMap data may not include all facilities.
   water_chart:
     footnote: He, C., Liu, Z., Wu, J. et al. Future global urban water scarcity and potential solutions. Nat Commune 12, 4667 (2021).
 
