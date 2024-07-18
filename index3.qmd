@@ -1067,7 +1067,7 @@ comb_layers <- c(comb_layers, "combined-flooding-2020")
 
 ```{r}
 #| output: asis
-print_slide_text(slide_texts$FCS_water$pluvial_flooding_2020)
+print_slide_text(slide_texts$FCS_water$comb_flooding_2020)
 ```
 ### Population Exposed 2020
 
@@ -1103,8 +1103,8 @@ print_slide_text(slide_texts$FCS_water$pop_flooding_2020)
 road_low_2020 <- fuzzy_read(spatial_dir, "rce_SSP1_2020_1in10", rast)
 values(road_low_2020)[values(road_low_2020) == 0] <-NA  
 # # Replace negative values with zero
-# pop_2020_positive <- pop_2020
-# pop_2020_positive[pop_2020_positive <= 0] <- NA
+pop_2020_positive <- pop_2020
+pop_2020_positive[pop_2020_positive <= 0] <- NA
 
 add_road_2020_layer <- create_layer_function(data = road_low_2020, yaml_key = "roads-exposed",group_id="roads-exposed-2020")
 all_maps <-add_road_2020_layer(all_maps)
@@ -1138,9 +1138,43 @@ comb_layers <- c(comb_layers, "combined-flooding-ssp2-2050")
 
 ```{r}
 #| output: asis
-print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
+print_slide_text(slide_texts$FCS_water$comb_flooding_SSP2_2050)
+```
+### Population Exposed SSP2 2050
+
+```{r}
+#| include: false
+pop_low_ssp2_2050 <- fuzzy_read(spatial_dir, "pop_comb_SSP2_2050_1in10.tif", rast)
+pop_med_ssp2_2050 <- fuzzy_read(spatial_dir, "pop_comb_SSP2_2050_1in100.tif", rast)
+
+# Interactive Plot (Leaflet)
+pop_ssp2_2050 <- max(pop_low_ssp2_2050,pop_med_ssp2_2050,na.rm = TRUE)
+masked_pop_ssp2_2050 <- mask(pop_ssp2_2050, aoi)
+
+# # Replace negative values with zero
+# pop_2020_positive <- pop_2020
+# pop_2020_positive[pop_2020_positive <= 0] <- NA
+
+add_pop_ssp2_2050_layer <- create_layer_function(data = masked_pop_ssp2_2050, yaml_key = "pop_flood",group_id="population-exposed-ssp2-2050")
+all_maps <-add_pop_ssp2_2050_layer(all_maps)
+comb_layers <- c(comb_layers, "population-exposed-ssp2-2050")
 ```
 
+```{r, output=TRUE}
+#| output: asis
+pop_columns <- c("X1.LowRiskPop", "X2.ModerateRiskPop", "X3.HighRiskPop", "X4.VeryHighRiskPop")
+graphs_pop <- pop_exposed("generated/pop_exposure.csv", 2050, pop_columns)
+graphs_pop
+print_slide_text(slide_texts$FCS_water$comb_flooding_SSP2_2050)
+```
+
+###  Roads Exposed to Floods in SSP2 2050
+```{r, output=TRUE}
+#| output: asis
+graphs_2050 <- roads_exposed("generated/road_exposure.csv", 2050)
+graphs_2050[[2]]
+print_slide_text(slide_texts$FCS_water$comb_flooding_SSP2_2050)
+```
 ### Combined Flooding SSP5 2050
 
 ```{r}
@@ -1161,20 +1195,15 @@ comb_layers <- c(comb_layers, "combined-flooding-ssp5-2050")
 
 ```{r}
 #| output: asis
-print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2050)
+print_slide_text(slide_texts$FCS_water$comb_flooding_SSP2_2050)
 ```
-###  Population Exposed to Floods in 2050
+
+###  Roads Exposed to Floods in SSP 5 2050
 ```{r, output=TRUE}
-#pop_columns <- c("X1.LowRiskPop", "X2.ModerateRiskPop", "X3.HighRiskPop", "X4.VeryHighRiskPop")
-#graphs_pop <- pop_exposed("generated/pop_exposure.csv",2050,pop_columns)
-#graphs_pop[[2]]
-#graphs_pop[[4]]
-```
-###  Roads Exposed to Floods in 2050
-```{r, output=TRUE}
+#| output: asis
 graphs_2050 <- roads_exposed("generated/road_exposure.csv", 2050)
-graphs_2050[[2]]
 graphs_2050[[4]]
+print_slide_text(slide_texts$FCS_water$comb_flooding_SSP2_2050)
 ```
 ### Combined Flooding SSP2 2080
 
@@ -1195,50 +1224,17 @@ comb_layers <- c(comb_layers, "combined-flooding-ssp2-2080")
 
 ```
 
+```{r}
+#| output: asis
+print_slide_text(slide_texts$FCS_water$comb_flooding_SSP2_2080)
+```
 ###  Roads Exposed to Floods in 2050
 ```{r, output=TRUE}
+#| output: asis
 graphs_2080 <- roads_exposed("generated/road_exposure.csv", 2080)
 graphs_2080[[2]]
 graphs_2080[[4]]
-```
-
-```{r}
-#| output: asis
-print_slide_text(slide_texts$FCS_water$pluvial_flooding_SSP2_2080)
-```
-###  Population Exposed to Floods
-```{r, output=TRUE}
-pop_exposed <- read.csv("generated/pop_exposure.csv")
-
-selected_columns <- pop_exposed[, c("return_period", "ssp", "X1.LowRiskPop", "X2.ModerateRiskPop", "X3.HighRiskPop", "X4.VeryHighRiskPop")]
-
-
-long_data <- pivot_longer(selected_columns,
-                          cols = starts_with("X"),
-                          names_to = "RiskCategory",
-                          values_to = "Population")
-
-
-long_data$RiskCategory <- factor(long_data$RiskCategory,
-                                 levels = c("X1.LowRiskPop", "X2.ModerateRiskPop", "X3.HighRiskPop", "X4.VeryHighRiskPop"),
-                                 labels = c("Low Risk", "Moderate Risk", "High Risk", "Very High Risk"))
-
-
-ggplot_graph <- ggplot(long_data, aes(x = factor(return_period), y = Population, fill = RiskCategory)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  facet_wrap(~ ssp) +
-  labs(title = "Population exposed to floods",
-       x = "Return Period",
-       y = "Population",
-       fill = "Risk Category") +
-  scale_fill_manual(values = c("Low Risk" = "grey", 
-                               "Moderate Risk" = "orange", 
-                               "High Risk" = "red", 
-                               "Very High Risk" = "darkred")) +  # Custom colors
-  theme_minimal()
-
-pop_exposed_graph <- ggplotly(ggplot_graph)
-pop_exposed_graph
+print_slide_text(slide_texts$FCS_water$comb_flooding_SSP2_2080)
 ```
 
 ### Water scarcity

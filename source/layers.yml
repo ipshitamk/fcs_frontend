@@ -390,9 +390,9 @@ pop_flood:
 population flood_2020:
   group_id: "population-exposed-2020"
 
-population flood_SSP2_2100:
+population flood_SSP2_2050:
   title: 'Population Density SSP2_2100'
-  group_id: "population-exposed-ssp2_2100"
+  group_id: "population-exposed-ssp2_2050"
 
 population flood_SSP5_2050:
   title: 'Population Density SSP5_2050'

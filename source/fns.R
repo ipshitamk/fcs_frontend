@@ -827,10 +827,10 @@ roads_exposed <- function(csv_path, year) {
 
 pop_exposed <- function(csv_path, year, pop_columns) {
   # Read the CSV file using base R
-  pop_exposed <- read.csv(csv_path, stringsAsFactors = FALSE)
+  pop_exposure <- read.csv(csv_path, stringsAsFactors = FALSE)
   
   # Filter data for the specific year
-  data_year <- pop_exposed[pop_exposed$year == year, ]
+  data_year <- pop_exposure[pop_exposure$year == year, ]
   
   # Select specified population columns
   selected_columns <- data_year[, c("return_period", "ssp", pop_columns)]
@@ -841,10 +841,13 @@ pop_exposed <- function(csv_path, year, pop_columns) {
                                    names_to = "RiskCategory",
                                    values_to = "Population")
   
+  # Extract meaningful labels from column names (e.g., "X1.LowRiskPop" to "Low Risk")
+  long_data$RiskCategory <- gsub("^X[0-9]+\\.(.*)Pop$", "\\1", long_data$RiskCategory)
+  
   # Ensure RiskCategory is a factor with correct labels
   long_data$RiskCategory <- factor(long_data$RiskCategory,
-                                   levels = unique(long_data$RiskCategory),
-                                   labels = c("Low Risk", "Moderate Risk", "High Risk", "Very High Risk"))
+                                   levels = c("NoRisk", "LowRisk", "ModerateRisk", "HighRisk", "VeryHighRisk"),
+                                   labels = c("No Risk", "Low Risk", "Moderate Risk", "High Risk", "Very High Risk"))
   
   # Create the ggplot graph
   ggplot_graph <- ggplot2::ggplot(long_data, aes(x = factor(return_period), y = Population, fill = RiskCategory)) +
@@ -854,11 +857,11 @@ pop_exposed <- function(csv_path, year, pop_columns) {
          x = "Return Period",
          y = "Population",
          fill = "Risk Category") +
-    scale_fill_brewer(palette = "RdYlBu") +  # Custom color scale
+    scale_fill_brewer(palette = "OrRd") +  # Custom color scale
     theme_minimal()
   
   # Convert ggplot to plotly
-  plotly_graph <- plotly::ggplotly(ggplot_graph, dynamicTicks = TRUE)  # Ensure dynamicTicks are enabled for better rendering
+  plotly_graph <- plotly::ggplotly(ggplot_graph)  # Ensure dynamicTicks are enabled for better rendering
   
   # Return the plotly graph
   return(plotly_graph)
